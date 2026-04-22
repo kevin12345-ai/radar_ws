@@ -1,0 +1,12 @@
+{
+  "package_name": "vision_detector",
+  "output_dir": "/home/kevin/radar_ws/build/vision_detector/rosidl_generator_type_description/vision_detector",
+  "idl_tuples": [
+    "/home/kevin/radar_ws/build/vision_detector/rosidl_adapter/vision_detector:msg/DroneDiff.idl",
+    "/home/kevin/radar_ws/build/vision_detector/rosidl_adapter/vision_detector:msg/GimbalInfo.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces"
+  ]
+}

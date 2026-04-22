@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vision_detector/msg/GimbalInfo.msg
+// generated code does not contain a copyright notice
+
+
+module vision_detector {
+  module msg {
+    struct GimbalInfo {
+      float current_yaw;
+
+      float current_pitch;
+
+      uint32 last_pc_timestamp_us;
+    };
+  };
+};

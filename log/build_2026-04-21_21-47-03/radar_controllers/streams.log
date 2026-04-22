@@ -1,0 +1,73 @@
+[0.009s] Invoking command in '/home/kevin/radar_ws/build/radar_controllers': AMENT_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/vision_detector/lib:/home/kevin/radar_ws/install/camera_stream/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/kevin/radar_ws/src/radar_controllers -DCMAKE_INSTALL_PREFIX=/home/kevin/radar_ws/install/radar_controllers
+[0.083s] -- The C compiler identification is GNU 13.3.0
+[0.143s] -- The CXX compiler identification is GNU 13.3.0
+[0.163s] -- Detecting C compiler ABI info
+[0.269s] -- Detecting C compiler ABI info - done
+[0.281s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.281s] -- Detecting C compile features
+[0.281s] -- Detecting C compile features - done
+[0.294s] -- Detecting CXX compiler ABI info
+[0.409s] -- Detecting CXX compiler ABI info - done
+[0.415s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.415s] -- Detecting CXX compile features
+[0.416s] -- Detecting CXX compile features - done
+[0.417s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.532s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.612s] -- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.642s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.651s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.661s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.673s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.725s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.726s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.805s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.830s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.857s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.910s] -- Found vision_detector: 0.0.0 (/home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake)
+[0.934s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.005s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.005s] -- Configured cppcheck include dirs: /home/kevin/radar_ws/src/radar_controllers/..
+[1.005s] -- Configured cppcheck exclude dirs and/or files: 
+[1.006s] -- Added test 'lint_cmake' to check CMake code style
+[1.006s] -- Added test 'uncrustify' to check C / C++ code style
+[1.006s] -- Configured uncrustify additional arguments: 
+[1.007s] -- Added test 'xmllint' to check XML markup files
+[1.007s] -- Configuring done (1.0s)
+[1.014s] -- Generating done (0.0s)
+[1.016s] -- Build files have been written to: /home/kevin/radar_ws/build/radar_controllers
+[1.023s] Invoked command in '/home/kevin/radar_ws/build/radar_controllers' returned '0': AMENT_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/vision_detector/lib:/home/kevin/radar_ws/install/camera_stream/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/kevin/radar_ws/src/radar_controllers -DCMAKE_INSTALL_PREFIX=/home/kevin/radar_ws/install/radar_controllers
+[1.023s] Invoking command in '/home/kevin/radar_ws/build/radar_controllers': AMENT_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/vision_detector/lib:/home/kevin/radar_ws/install/camera_stream/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kevin/radar_ws/build/radar_controllers -- -j32 -l32
+[1.082s] [ 25%] [32mBuilding CXX object CMakeFiles/node_stm_serial.dir/src/SerialPort.cpp.o[0m
+[1.083s] [ 50%] [32mBuilding CXX object CMakeFiles/node_stm_serial.dir/src/node_stm_serial.cpp.o[0m
+[1.084s] [ 75%] [32mBuilding CXX object CMakeFiles/node_stm_serial.dir/src/serial.cpp.o[0m
+[1.107s] [01m[K/home/kevin/radar_ws/src/radar_controllers/src/serial.cpp:[m[K In function ‘[01m[Kint[01;32m[K parse_receive_packet[m[K(const uint8_t*, to_pc_packet_t*)[m[K’:
+[1.107s] [01m[K/home/kevin/radar_ws/src/radar_controllers/src/serial.cpp:68:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Klong unsigned int[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+[1.107s]    68 |         for(int i=0;[01;35m[Ki<sizeof(to_pc_packet_t)[m[K;i++){
+[1.107s]       |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.197s] [01m[K/home/kevin/radar_ws/src/radar_controllers/src/SerialPort.cpp:[m[K In member function ‘[01m[Kssize_t SerialPort::[01;32m[Kwrite[m[K(const void*, size_t)[m[K’:
+[1.197s] [01m[K/home/kevin/radar_ws/src/radar_controllers/src/SerialPort.cpp:197:18:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+[1.197s]   197 |     for(int i=0;[01;35m[Ki<len[m[K;i++){
+[1.197s]       |                 [01;35m[K~^~~~[m[K
+[6.060s] [100%] [32m[1mLinking CXX executable node_stm_serial[0m
+[6.254s] [100%] Built target node_stm_serial
+[6.264s] Invoked command in '/home/kevin/radar_ws/build/radar_controllers' returned '0': AMENT_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/vision_detector/lib:/home/kevin/radar_ws/install/camera_stream/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kevin/radar_ws/build/radar_controllers -- -j32 -l32
+[6.264s] Invoking command in '/home/kevin/radar_ws/build/radar_controllers': AMENT_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/vision_detector/lib:/home/kevin/radar_ws/install/camera_stream/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kevin/radar_ws/build/radar_controllers
+[6.271s] -- Install configuration: ""
+[6.271s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/lib/radar_controllers/node_stm_serial
+[6.275s] -- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/radar_controllers/lib/radar_controllers/node_stm_serial" to ""
+[6.275s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/ament_index/resource_index/package_run_dependencies/radar_controllers
+[6.275s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/ament_index/resource_index/parent_prefix_path/radar_controllers
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/environment/ament_prefix_path.sh
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/environment/ament_prefix_path.dsv
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/environment/path.sh
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/environment/path.dsv
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/local_setup.bash
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/local_setup.sh
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/local_setup.zsh
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/local_setup.dsv
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/package.dsv
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/ament_index/resource_index/packages/radar_controllers
+[6.276s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/cmake/radar_controllersConfig.cmake
+[6.277s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/cmake/radar_controllersConfig-version.cmake
+[6.277s] -- Installing: /home/kevin/radar_ws/install/radar_controllers/share/radar_controllers/package.xml
+[6.278s] Invoked command in '/home/kevin/radar_ws/build/radar_controllers' returned '0': AMENT_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/vision_detector/lib:/home/kevin/radar_ws/install/camera_stream/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kevin/radar_ws/build/radar_controllers

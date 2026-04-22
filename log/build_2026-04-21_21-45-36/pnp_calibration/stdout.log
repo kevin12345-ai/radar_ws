@@ -1,0 +1,60 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found OpenCV: /usr (found version "4.6.0") 
+-- Found camera_stream: 0.0.0 (/home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake)
+-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/kevin/radar_ws/build/pnp_calibration
+[ 25%] [32mBuilding CXX object CMakeFiles/node_pnp_calibration.dir/src/node_pnp_calibration.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/node_pnp_calibration.dir/src/ui.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/node_pnp_calibration.dir/src/calibration.cpp.o[0m
+[100%] [32m[1mLinking CXX executable node_pnp_calibration[0m
+[100%] Built target node_pnp_calibration
+-- Install configuration: ""
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/ament_index/resource_index/package_run_dependencies/pnp_calibration
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/ament_index/resource_index/parent_prefix_path/pnp_calibration
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/environment/ament_prefix_path.sh
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/environment/ament_prefix_path.dsv
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/environment/path.sh
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/environment/path.dsv
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/local_setup.bash
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/local_setup.sh
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/local_setup.zsh
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/local_setup.dsv
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/package.dsv
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/ament_index/resource_index/packages/pnp_calibration
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/cmake/pnp_calibrationConfig.cmake
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/cmake/pnp_calibrationConfig-version.cmake
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/package.xml
+-- Installing: /home/kevin/radar_ws/install/pnp_calibration/lib/pnp_calibration/node_pnp_calibration
+-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/pnp_calibration/lib/pnp_calibration/node_pnp_calibration" to ""

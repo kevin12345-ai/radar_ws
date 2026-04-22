@@ -1,0 +1,2 @@
+source;share/radar_controllers/environment/ament_prefix_path.sh
+source;share/radar_controllers/environment/path.sh

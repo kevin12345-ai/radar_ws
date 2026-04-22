@@ -1,0 +1,285 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-10f78803fe195f6a4e56.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21
+					]
+				},
+				{
+					"build" : "camera_stream__py",
+					"jsonFile" : "directory-camera_stream__py-c90744261dbcd94305be.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/kevin/radar_ws/build/camera_stream/camera_stream__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "camera_stream__rs",
+					"jsonFile" : "directory-camera_stream__rs-c0fbd3c7c978ee82c92d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/kevin/radar_ws/build/camera_stream/camera_stream__rs",
+					"targetIndexes" : 
+					[
+						14
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "camera_stream",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_camera_stream_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_camera_stream_egg-0fa977fb54d817767e6c.json",
+					"name" : "ament_cmake_python_build_camera_stream_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_camera_stream::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_camera_stream-212a76b53aa1cd3464f9.json",
+					"name" : "ament_cmake_python_copy_camera_stream",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream-f79191b467b8a07a6c30.json",
+					"name" : "camera_stream",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__cpp-856a35b1d5fdd4f99e2a.json",
+					"name" : "camera_stream__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "camera_stream__py::@7ff2c86b132740177da3",
+					"jsonFile" : "target-camera_stream__py-997fe2dba770cab2ebb4.json",
+					"name" : "camera_stream__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_generator_c-5ada9338aa3fac0132b3.json",
+					"name" : "camera_stream__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_generator_py-d16b16839a91ae008156.json",
+					"name" : "camera_stream__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_generator_type_description-36d7df4c485992b6e867.json",
+					"name" : "camera_stream__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_typesupport_c-aede53daf04a26f26927.json",
+					"name" : "camera_stream__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_typesupport_cpp-d26301c0a877947fe70b.json",
+					"name" : "camera_stream__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_typesupport_fastrtps_c-19432447e083867068de.json",
+					"name" : "camera_stream__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_typesupport_fastrtps_cpp-e24764b7f4c0933eaa38.json",
+					"name" : "camera_stream__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_typesupport_introspection_c-b987deef89c3522a36e9.json",
+					"name" : "camera_stream__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream__rosidl_typesupport_introspection_cpp-bee86e19f18477c71b15.json",
+					"name" : "camera_stream__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "camera_stream__rs::@aecbfdf8ad5ae1f29cff",
+					"jsonFile" : "target-camera_stream__rs-8edba16159161b9d6f62.json",
+					"name" : "camera_stream__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream_publisher::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream_publisher-b476129e7d18ccb183a5.json",
+					"name" : "camera_stream_publisher",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream_receiver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream_receiver-613876bbf4b1769d7707.json",
+					"name" : "camera_stream_receiver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream_s__rosidl_typesupport_c-bc5ddd283df591e844a5.json",
+					"name" : "camera_stream_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream_s__rosidl_typesupport_fastrtps_c-8a915bbed2c1da8b48b6.json",
+					"name" : "camera_stream_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream_s__rosidl_typesupport_introspection_c-dc5a6bfe4f8a1554374c.json",
+					"name" : "camera_stream_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_stream_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_stream_uninstall-f9094d1b3f3fb9e360bd.json",
+					"name" : "camera_stream_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-37300ac2a10e7d70cba7.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/kevin/radar_ws/build/camera_stream",
+		"source" : "/home/kevin/radar_ws/src/camera_stream"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

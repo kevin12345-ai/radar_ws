@@ -1,0 +1,8 @@
+[01m[K/home/kevin/radar_ws/src/radar_controllers/src/serial.cpp:[m[K In function ‘[01m[Kint[01;32m[K parse_receive_packet[m[K(const uint8_t*, to_pc_packet_t*)[m[K’:
+[01m[K/home/kevin/radar_ws/src/radar_controllers/src/serial.cpp:68:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Klong unsigned int[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+   68 |         for(int i=0;[01;35m[Ki<sizeof(to_pc_packet_t)[m[K;i++){
+      |                     [01;35m[K~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kevin/radar_ws/src/radar_controllers/src/SerialPort.cpp:[m[K In member function ‘[01m[Kssize_t SerialPort::[01;32m[Kwrite[m[K(const void*, size_t)[m[K’:
+[01m[K/home/kevin/radar_ws/src/radar_controllers/src/SerialPort.cpp:197:18:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  197 |     for(int i=0;[01;35m[Ki<len[m[K;i++){
+      |                 [01;35m[K~^~~~[m[K

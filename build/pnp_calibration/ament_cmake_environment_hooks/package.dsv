@@ -1,0 +1,4 @@
+source;share/pnp_calibration/local_setup.bash
+source;share/pnp_calibration/local_setup.dsv
+source;share/pnp_calibration/local_setup.sh
+source;share/pnp_calibration/local_setup.zsh

@@ -1,0 +1,79 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"/home/kevin/radar_ws/build/camera_stream/camera_stream__py/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "camera_stream::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "camera_stream__py::@7ff2c86b132740177da3",
+	"name" : "camera_stream__py",
+	"paths" : 
+	{
+		"build" : "camera_stream__py",
+		"source" : "/home/kevin/radar_ws/build/camera_stream/camera_stream__py"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "/home/kevin/radar_ws/build/camera_stream/camera_stream__py/CMakeFiles/camera_stream__py",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/kevin/radar_ws/build/camera_stream/camera_stream__py/CMakeFiles/camera_stream__py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/kevin/radar_ws/build/camera_stream/rosidl_generator_py/camera_stream/_camera_stream_s.ep.rosidl_typesupport_fastrtps_c.c.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

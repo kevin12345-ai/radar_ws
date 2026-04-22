@@ -1,0 +1,276 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-099d22991a8ba11f54f8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19,
+						20
+					]
+				},
+				{
+					"build" : "vision_detector__py",
+					"jsonFile" : "directory-vision_detector__py-7e38d0abcdb45f9983e4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/kevin/radar_ws/build/vision_detector/vision_detector__py",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "vision_detector__rs",
+					"jsonFile" : "directory-vision_detector__rs-ebd204911327da810ee0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/kevin/radar_ws/build/vision_detector/vision_detector__rs",
+					"targetIndexes" : 
+					[
+						16
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "vision_detector",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_vision_detector_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_vision_detector_egg-06e198c7742a53505f4e.json",
+					"name" : "ament_cmake_python_build_vision_detector_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_vision_detector::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_vision_detector-925e385ebea20c600c1f.json",
+					"name" : "ament_cmake_python_copy_vision_detector",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "node_vision_drone_detector::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-node_vision_drone_detector-1be204c4f3d60935b5f6.json",
+					"name" : "node_vision_drone_detector",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-cb8ca23ab167e061126b.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector-cb71172495cb60e27bcd.json",
+					"name" : "vision_detector",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__cpp-53691c26e126a9fb5abb.json",
+					"name" : "vision_detector__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "vision_detector__py::@c097667765cc072cd1ca",
+					"jsonFile" : "target-vision_detector__py-cf32036fec379b586bd2.json",
+					"name" : "vision_detector__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_generator_c-0ff3d5143991f84e5b3e.json",
+					"name" : "vision_detector__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_generator_py-327bc8fbba1b2eb1fbe1.json",
+					"name" : "vision_detector__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_generator_type_description-46898c84e4ae93537db7.json",
+					"name" : "vision_detector__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_typesupport_c-32cd374036af06003810.json",
+					"name" : "vision_detector__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_typesupport_cpp-c836ad1d02cac8c00a2c.json",
+					"name" : "vision_detector__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_typesupport_fastrtps_c-368db494383b69c94185.json",
+					"name" : "vision_detector__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_typesupport_fastrtps_cpp-fc1347ee52c1ab0f5321.json",
+					"name" : "vision_detector__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_typesupport_introspection_c-83f98c42813614ac6d72.json",
+					"name" : "vision_detector__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector__rosidl_typesupport_introspection_cpp-cb61a2eb4824aceb57f2.json",
+					"name" : "vision_detector__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "vision_detector__rs::@9fd1faaa3a4ab84bd174",
+					"jsonFile" : "target-vision_detector__rs-8f6190ac8e7b101cc8d6.json",
+					"name" : "vision_detector__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector_s__rosidl_typesupport_c-2092127b3473f8ee8eda.json",
+					"name" : "vision_detector_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector_s__rosidl_typesupport_fastrtps_c-46afc19425ceb858c6ab.json",
+					"name" : "vision_detector_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector_s__rosidl_typesupport_introspection_c-000e7261b2873fa8670b.json",
+					"name" : "vision_detector_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vision_detector_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vision_detector_uninstall-c2a19c4d8cdd78df8ec5.json",
+					"name" : "vision_detector_uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/kevin/radar_ws/build/vision_detector",
+		"source" : "/home/kevin/radar_ws/src/vision_detector"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

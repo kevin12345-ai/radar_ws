@@ -1,0 +1,9 @@
+setup.py
+vision_detector/__init__.py
+vision_detector.egg-info/PKG-INFO
+vision_detector.egg-info/SOURCES.txt
+vision_detector.egg-info/dependency_links.txt
+vision_detector.egg-info/top_level.txt
+vision_detector/msg/__init__.py
+vision_detector/msg/_drone_diff.py
+vision_detector/msg/_gimbal_info.py

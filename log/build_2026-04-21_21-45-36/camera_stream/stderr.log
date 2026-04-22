@@ -1,0 +1,21 @@
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:[m[K In constructor ‘[01m[KCameraStreamPublisher::[01;32m[KCameraStreamPublisher[m[K(std::string, int, camera_mode)[m[K’:
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:45:13:[m[K [01;35m[Kwarning: [m[K‘[01m[KCameraStreamPublisher::camera_select_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   45 |         int [01;35m[Kcamera_select_[m[K;
+      |             [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:44:13:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint CameraStreamPublisher::camera_mode_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   44 |         int [01;35m[Kcamera_mode_[m[K;
+      |             [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:14:9:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   14 |         [01;35m[KCameraStreamPublisher[m[K(std::string name, int camera_select, enum camera_mode mode) : Node(name), camera_select_(camera_select), camera_mode_(mode)
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:[m[K In member function ‘[01m[Kvoid CameraStreamPublisher::[01;32m[KinitCamera[m[K()[m[K’:
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:206:188:[m[K [01;35m[Kwarning: [m[KISO C++ forbids compound-literals [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+  206 |                                 success = init_HKCamera(&hkcamera_, CAMERA_CAR_DEVID, (struct HIKCameraParams){CAR_CAMERA_HIK_EXPOSURE_TIME, CAR_CAMERA_HIK_GAIN, CAR_CAMERA_HIK_FRAME_RATE[01;35m[K}[m[K);
+      |                                                                                                                                                                                            [01;35m[K^[m[K
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:208:196:[m[K [01;35m[Kwarning: [m[KISO C++ forbids compound-literals [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+  208 |                                 success = init_HKCamera(&hkcamera_, CAMERA_DRONE_DEVID, (struct HIKCameraParams){DRONE_CAMERA_HIK_EXPOSURE_TIME, DRONE_CAMERA_HIK_GAIN, DRONE_CAMERA_HIK_FRAME_RATE[01;35m[K}[m[K);
+      |                                                                                                                                                                                                    [01;35m[K^[m[K
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_receiver.cpp:[m[K In member function ‘[01m[Kvoid VisionDroneDetector::[01;32m[Kcommand_callback[m[K(camera_stream::msg::ShareImage_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_receiver.cpp:34:31:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around comparison in operand of ‘[01m[K|[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+   34 |         if([01;35m[Kmsg->camera_select == CAMERA_SELECT_DRONE[m[K | 1){
+      |            [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K

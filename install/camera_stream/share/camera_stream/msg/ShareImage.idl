@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from camera_stream/msg/ShareImage.msg
+// generated code does not contain a copyright notice
+
+
+module camera_stream {
+  module msg {
+    struct ShareImage {
+      uint32 camera_select;
+
+      uint32 shm_id;
+
+      uint32 width;
+
+      uint32 height;
+
+      uint32 frame_id;
+
+      boolean enable;
+
+      uint32 shm_size;
+
+      uint64 timestamp_us;
+    };
+  };
+};

@@ -1,0 +1,7 @@
+{
+  "package_name": "vision_detector",
+  "non_idl_tuples": [
+    "/home/kevin/radar_ws/src/vision_detector:msg/DroneDiff.msg",
+    "/home/kevin/radar_ws/src/vision_detector:msg/GimbalInfo.msg"
+  ]
+}

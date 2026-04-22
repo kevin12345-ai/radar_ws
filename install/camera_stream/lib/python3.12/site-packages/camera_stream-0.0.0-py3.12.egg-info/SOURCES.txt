@@ -1,0 +1,8 @@
+setup.py
+camera_stream/__init__.py
+camera_stream.egg-info/PKG-INFO
+camera_stream.egg-info/SOURCES.txt
+camera_stream.egg-info/dependency_links.txt
+camera_stream.egg-info/top_level.txt
+camera_stream/msg/__init__.py
+camera_stream/msg/_share_image.py

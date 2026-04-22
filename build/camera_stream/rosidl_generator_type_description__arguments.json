@@ -1,0 +1,11 @@
+{
+  "package_name": "camera_stream",
+  "output_dir": "/home/kevin/radar_ws/build/camera_stream/rosidl_generator_type_description/camera_stream",
+  "idl_tuples": [
+    "/home/kevin/radar_ws/build/camera_stream/rosidl_adapter/camera_stream:msg/ShareImage.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces"
+  ]
+}

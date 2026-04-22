@@ -1,0 +1,747 @@
+[0.000000] (-) TimerEvent: {}
+[0.000509] (camera_stream) JobQueued: {'identifier': 'camera_stream', 'dependencies': OrderedDict()}
+[0.000689] (pnp_calibration) JobQueued: {'identifier': 'pnp_calibration', 'dependencies': OrderedDict({'camera_stream': '/home/kevin/radar_ws/install/camera_stream'})}
+[0.000717] (vision_detector) JobQueued: {'identifier': 'vision_detector', 'dependencies': OrderedDict({'camera_stream': '/home/kevin/radar_ws/install/camera_stream'})}
+[0.000736] (radar_controllers) JobQueued: {'identifier': 'radar_controllers', 'dependencies': OrderedDict({'camera_stream': '/home/kevin/radar_ws/install/camera_stream', 'vision_detector': '/home/kevin/radar_ws/install/vision_detector'})}
+[0.000757] (camera_stream) JobStarted: {'identifier': 'camera_stream'}
+[0.005376] (camera_stream) JobProgress: {'identifier': 'camera_stream', 'progress': 'cmake'}
+[0.005702] (camera_stream) Command: {'cmd': ['/usr/bin/cmake', '/home/kevin/radar_ws/src/camera_stream', '-DCMAKE_INSTALL_PREFIX=/home/kevin/radar_ws/install/camera_stream'], 'cwd': '/home/kevin/radar_ws/build/camera_stream', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kevin', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'PARENT_WINDOW_ID': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code-url-handler.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2304', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2520', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4568', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'JOURNAL_STREAM': '9:15843', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2520,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2520', 'INVOCATION_ID': 'adab7630fdaf4459a9e51566130c00cd', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/26e5d884_cc85_4e2a_bc7a_f2647d25bd74', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3LBYN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.107', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/camera_stream', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'GIO_USE_VFS': 'local', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099827] (-) TimerEvent: {}
+[0.100793] (camera_stream) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.168598] (camera_stream) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.185516] (camera_stream) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199944] (-) TimerEvent: {}
+[0.289410] (camera_stream) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.300062] (-) TimerEvent: {}
+[0.300493] (camera_stream) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.300858] (camera_stream) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.301371] (camera_stream) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.311868] (camera_stream) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.400230] (-) TimerEvent: {}
+[0.425962] (camera_stream) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.436162] (camera_stream) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.436254] (camera_stream) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.436587] (camera_stream) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.438125] (camera_stream) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.500378] (-) TimerEvent: {}
+[0.585891] (camera_stream) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.600452] (-) TimerEvent: {}
+[0.658667] (camera_stream) StdoutLine: {'line': b'-- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.682521] (camera_stream) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.690702] (camera_stream) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.700576] (camera_stream) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.700665] (-) TimerEvent: {}
+[0.711829] (camera_stream) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.763088] (camera_stream) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.764705] (camera_stream) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.800777] (-) TimerEvent: {}
+[0.845841] (camera_stream) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[0.872644] (camera_stream) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[0.895663] (camera_stream) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.900891] (-) TimerEvent: {}
+[0.953040] (camera_stream) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.6.0") \n'}
+[0.953864] (camera_stream) StdoutLine: {'line': b'-- Found std_msgs: 5.3.7 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[0.964020] (camera_stream) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.974699] (camera_stream) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[1.001058] (-) TimerEvent: {}
+[1.101278] (-) TimerEvent: {}
+[1.201528] (-) TimerEvent: {}
+[1.301812] (-) TimerEvent: {}
+[1.401996] (-) TimerEvent: {}
+[1.491507] (camera_stream) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[1.502107] (-) TimerEvent: {}
+[1.602347] (-) TimerEvent: {}
+[1.702705] (-) TimerEvent: {}
+[1.802978] (-) TimerEvent: {}
+[1.903203] (-) TimerEvent: {}
+[2.003388] (-) TimerEvent: {}
+[2.103568] (-) TimerEvent: {}
+[2.149175] (camera_stream) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.203640] (-) TimerEvent: {}
+[2.303834] (-) TimerEvent: {}
+[2.404069] (-) TimerEvent: {}
+[2.425558] (camera_stream) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.427155] (camera_stream) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[2.504200] (-) TimerEvent: {}
+[2.541464] (camera_stream) StdoutLine: {'line': b'-- Found PythonExtra: /usr/bin/python3  \n'}
+[2.604280] (-) TimerEvent: {}
+[2.704472] (-) TimerEvent: {}
+[2.804686] (-) TimerEvent: {}
+[2.889758] (camera_stream) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[2.904818] (-) TimerEvent: {}
+[2.974417] (camera_stream) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[2.975986] (camera_stream) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[2.993150] (camera_stream) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[2.993568] (camera_stream) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/kevin/radar_ws/src/camera_stream/include;/home/kevin/radar_ws/src/camera_stream/..\n'}
+[2.993614] (camera_stream) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[2.994587] (camera_stream) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.996542] (camera_stream) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[2.996599] (camera_stream) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[2.997074] (camera_stream) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.998596] (camera_stream) StdoutLine: {'line': b'-- Configuring done (3.0s)\n'}
+[3.004883] (-) TimerEvent: {}
+[3.031373] (camera_stream) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[3.041159] (camera_stream) StdoutLine: {'line': b'-- Build files have been written to: /home/kevin/radar_ws/build/camera_stream\n'}
+[3.050307] (camera_stream) CommandEnded: {'returncode': 0}
+[3.050539] (camera_stream) JobProgress: {'identifier': 'camera_stream', 'progress': 'build'}
+[3.050553] (camera_stream) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kevin/radar_ws/build/camera_stream', '--', '-j32', '-l32'], 'cwd': '/home/kevin/radar_ws/build/camera_stream', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kevin', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'PARENT_WINDOW_ID': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code-url-handler.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2304', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2520', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4568', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'JOURNAL_STREAM': '9:15843', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2520,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2520', 'INVOCATION_ID': 'adab7630fdaf4459a9e51566130c00cd', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/26e5d884_cc85_4e2a_bc7a_f2647d25bd74', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3LBYN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.107', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/camera_stream', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'GIO_USE_VFS': 'local', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[3.103474] (camera_stream) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[3.103646] (camera_stream) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[3.104951] (-) TimerEvent: {}
+[3.109912] (camera_stream) StdoutLine: {'line': b'[  5%] Built target ament_cmake_python_copy_camera_stream\n'}
+[3.205056] (-) TimerEvent: {}
+[3.233464] (camera_stream) StdoutLine: {'line': b'[  5%] Built target camera_stream__rosidl_generator_type_description\n'}
+[3.242999] (camera_stream) StdoutLine: {'line': b'[  7%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[3.244923] (camera_stream) StdoutLine: {'line': b'running egg_info\n'}
+[3.245672] (camera_stream) StdoutLine: {'line': b'creating camera_stream.egg-info\n'}
+[3.250623] (camera_stream) StdoutLine: {'line': b'[ 10%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[3.255794] (camera_stream) StdoutLine: {'line': b'[ 10%] Built target camera_stream__rs\n'}
+[3.256313] (camera_stream) StdoutLine: {'line': b'writing camera_stream.egg-info/PKG-INFO\n'}
+[3.256406] (camera_stream) StdoutLine: {'line': b'writing dependency_links to camera_stream.egg-info/dependency_links.txt\n'}
+[3.256574] (camera_stream) StdoutLine: {'line': b'writing top-level names to camera_stream.egg-info/top_level.txt\n'}
+[3.256655] (camera_stream) StdoutLine: {'line': b"writing manifest file 'camera_stream.egg-info/SOURCES.txt'\n"}
+[3.286262] (camera_stream) StdoutLine: {'line': b"reading manifest file 'camera_stream.egg-info/SOURCES.txt'\n"}
+[3.286553] (camera_stream) StdoutLine: {'line': b"writing manifest file 'camera_stream.egg-info/SOURCES.txt'\n"}
+[3.304604] (camera_stream) StdoutLine: {'line': b'[ 10%] Built target ament_cmake_python_build_camera_stream_egg\n'}
+[3.305158] (-) TimerEvent: {}
+[3.405418] (-) TimerEvent: {}
+[3.407927] (camera_stream) StdoutLine: {'line': b'[ 10%] Built target camera_stream__cpp\n'}
+[3.417182] (camera_stream) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/camera_stream__rosidl_generator_c.dir/rosidl_generator_c/camera_stream/msg/detail/share_image__functions.c.o\x1b[0m\n'}
+[3.417426] (camera_stream) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/camera_stream__rosidl_generator_c.dir/rosidl_generator_c/camera_stream/msg/detail/share_image__description.c.o\x1b[0m\n'}
+[3.418555] (camera_stream) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/camera_stream__rosidl_generator_c.dir/rosidl_generator_c/camera_stream/msg/detail/share_image__type_support.c.o\x1b[0m\n'}
+[3.460450] (camera_stream) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking C shared library libcamera_stream__rosidl_generator_c.so\x1b[0m\n'}
+[3.503833] (camera_stream) StdoutLine: {'line': b'[ 20%] Built target camera_stream__rosidl_generator_c\n'}
+[3.505550] (-) TimerEvent: {}
+[3.518102] (camera_stream) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.518306] (camera_stream) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.518614] (camera_stream) StdoutLine: {'line': b'[ 27%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[3.518721] (camera_stream) StdoutLine: {'line': b'[ 30%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.518846] (camera_stream) StdoutLine: {'line': b'[ 35%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[3.518925] (camera_stream) StdoutLine: {'line': b'[ 35%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.605659] (-) TimerEvent: {}
+[3.664744] (camera_stream) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream__rosidl_typesupport_c.dir/rosidl_typesupport_c/camera_stream/msg/share_image__type_support.cpp.o\x1b[0m\n'}
+[3.669317] (camera_stream) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/camera_stream/msg/share_image__type_support.cpp.o\x1b[0m\n'}
+[3.673974] (camera_stream) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding C object CMakeFiles/camera_stream__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/camera_stream/msg/detail/share_image__type_support.c.o\x1b[0m\n'}
+[3.681871] (camera_stream) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/camera_stream/msg/detail/share_image__type_support.cpp.o\x1b[0m\n'}
+[3.683897] (camera_stream) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/camera_stream/msg/detail/dds_fastrtps/share_image__type_support.cpp.o\x1b[0m\n'}
+[3.691536] (camera_stream) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/camera_stream/msg/detail/share_image__type_support_c.cpp.o\x1b[0m\n'}
+[3.696276] (camera_stream) StdoutLine: {'line': b'[ 52%] \x1b[32m\x1b[1mLinking CXX shared library libcamera_stream__rosidl_typesupport_c.so\x1b[0m\n'}
+[3.700314] (camera_stream) StdoutLine: {'line': b'[ 55%] \x1b[32m\x1b[1mLinking C shared library libcamera_stream__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[3.705763] (-) TimerEvent: {}
+[3.727008] (camera_stream) StdoutLine: {'line': b'[ 55%] Built target camera_stream__rosidl_typesupport_introspection_c\n'}
+[3.730954] (camera_stream) StdoutLine: {'line': b'[ 55%] Built target camera_stream__rosidl_typesupport_c\n'}
+[3.805905] (-) TimerEvent: {}
+[3.846121] (camera_stream) StdoutLine: {'line': b'[ 57%] \x1b[32m\x1b[1mLinking CXX shared library libcamera_stream__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[3.868430] (camera_stream) StdoutLine: {'line': b'[ 60%] \x1b[32m\x1b[1mLinking CXX shared library libcamera_stream__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[3.882039] (camera_stream) StdoutLine: {'line': b'[ 60%] Built target camera_stream__rosidl_typesupport_cpp\n'}
+[3.898587] (camera_stream) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream_receiver.dir/src/camera_stream_receiver.cpp.o\x1b[0m\n'}
+[3.898901] (camera_stream) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream_publisher.dir/src/HKCamera.cpp.o\x1b[0m\n'}
+[3.899125] (camera_stream) StdoutLine: {'line': b'[ 65%] Built target camera_stream__rosidl_typesupport_introspection_cpp\n'}
+[3.900487] (camera_stream) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream_publisher.dir/src/camera_stream_publisher.cpp.o\x1b[0m\n'}
+[3.906092] (-) TimerEvent: {}
+[3.961993] (camera_stream) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libcamera_stream__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[3.974592] (camera_stream) StdoutLine: {'line': b'[ 72%] \x1b[32m\x1b[1mLinking CXX shared library libcamera_stream__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[3.999323] (camera_stream) StdoutLine: {'line': b'[ 72%] Built target camera_stream__rosidl_typesupport_fastrtps_c\n'}
+[4.006233] (-) TimerEvent: {}
+[4.009761] (camera_stream) StdoutLine: {'line': b'[ 72%] Built target camera_stream__rosidl_typesupport_fastrtps_cpp\n'}
+[4.026270] (camera_stream) StdoutLine: {'line': b'[ 72%] Built target camera_stream\n'}
+[4.045656] (camera_stream) StdoutLine: {'line': b'[ 75%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[4.106388] (-) TimerEvent: {}
+[4.206676] (-) TimerEvent: {}
+[4.228433] (camera_stream) StdoutLine: {'line': b'[ 75%] Built target camera_stream__py\n'}
+[4.244647] (camera_stream) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding C object CMakeFiles/camera_stream__rosidl_generator_py.dir/rosidl_generator_py/camera_stream/msg/_share_image_s.c.o\x1b[0m\n'}
+[4.306821] (-) TimerEvent: {}
+[4.324412] (camera_stream) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking C shared library libcamera_stream__rosidl_generator_py.so\x1b[0m\n'}
+[4.360802] (camera_stream) StdoutLine: {'line': b'[ 80%] Built target camera_stream__rosidl_generator_py\n'}
+[4.379108] (camera_stream) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/camera_stream_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/camera_stream/_camera_stream_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[4.379471] (camera_stream) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/camera_stream_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/camera_stream/_camera_stream_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[4.380697] (camera_stream) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/camera_stream_s__rosidl_typesupport_c.dir/rosidl_generator_py/camera_stream/_camera_stream_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[4.406925] (-) TimerEvent: {}
+[4.449673] (camera_stream) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/camera_stream/camera_stream_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[4.450894] (camera_stream) StdoutLine: {'line': b'[ 92%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/camera_stream/camera_stream_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[4.451853] (camera_stream) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/camera_stream/camera_stream_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[4.477590] (camera_stream) StdoutLine: {'line': b'[ 95%] Built target camera_stream_s__rosidl_typesupport_fastrtps_c\n'}
+[4.477822] (camera_stream) StdoutLine: {'line': b'[ 95%] Built target camera_stream_s__rosidl_typesupport_introspection_c\n'}
+[4.477905] (camera_stream) StdoutLine: {'line': b'[ 95%] Built target camera_stream_s__rosidl_typesupport_c\n'}
+[4.507049] (-) TimerEvent: {}
+[4.607321] (-) TimerEvent: {}
+[4.707615] (-) TimerEvent: {}
+[4.807980] (-) TimerEvent: {}
+[4.908271] (-) TimerEvent: {}
+[5.008591] (-) TimerEvent: {}
+[5.108884] (-) TimerEvent: {}
+[5.209219] (-) TimerEvent: {}
+[5.309523] (-) TimerEvent: {}
+[5.409853] (-) TimerEvent: {}
+[5.510159] (-) TimerEvent: {}
+[5.602254] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KCameraStreamPublisher::\x1b[01;32m\x1b[KCameraStreamPublisher\x1b[m\x1b[K(std::string, int, camera_mode)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.602481] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:45:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCameraStreamPublisher::camera_select_\x1b[m\x1b[K\xe2\x80\x99 will be initialized after [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.602569] (camera_stream) StderrLine: {'line': b'   45 |         int \x1b[01;35m\x1b[Kcamera_select_\x1b[m\x1b[K;\n'}
+[5.602645] (camera_stream) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.602718] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:44:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kint CameraStreamPublisher::camera_mode_\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.602794] (camera_stream) StderrLine: {'line': b'   44 |         int \x1b[01;35m\x1b[Kcamera_mode_\x1b[m\x1b[K;\n'}
+[5.602865] (camera_stream) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.602935] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:14:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  when initialized here [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.603008] (camera_stream) StderrLine: {'line': b'   14 |         \x1b[01;35m\x1b[KCameraStreamPublisher\x1b[m\x1b[K(std::string name, int camera_select, enum camera_mode mode) : Node(name), camera_select_(camera_select), camera_mode_(mode)\n'}
+[5.603084] (camera_stream) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.610227] (-) TimerEvent: {}
+[5.613027] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid CameraStreamPublisher::\x1b[01;32m\x1b[KinitCamera\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.613224] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:206:188:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids compound-literals [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic\x07-Wpedantic\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.613309] (camera_stream) StderrLine: {'line': b'  206 |                                 success = init_HKCamera(&hkcamera_, CAMERA_CAR_DEVID, (struct HIKCameraParams){CAR_CAMERA_HIK_EXPOSURE_TIME, CAR_CAMERA_HIK_GAIN, CAR_CAMERA_HIK_FRAME_RATE\x1b[01;35m\x1b[K}\x1b[m\x1b[K);\n'}
+[5.613385] (camera_stream) StderrLine: {'line': b'      |                                                                                                                                                                                            \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[5.613457] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:208:196:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids compound-literals [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic\x07-Wpedantic\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.613530] (camera_stream) StderrLine: {'line': b'  208 |                                 success = init_HKCamera(&hkcamera_, CAMERA_DRONE_DEVID, (struct HIKCameraParams){DRONE_CAMERA_HIK_EXPOSURE_TIME, DRONE_CAMERA_HIK_GAIN, DRONE_CAMERA_HIK_FRAME_RATE\x1b[01;35m\x1b[K}\x1b[m\x1b[K);\n'}
+[5.613613] (camera_stream) StderrLine: {'line': b'      |                                                                                                                                                                                                    \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[5.615020] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_receiver.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid VisionDroneDetector::\x1b[01;32m\x1b[Kcommand_callback\x1b[m\x1b[K(camera_stream::msg::ShareImage_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.615225] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_receiver.cpp:34:31:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ksuggest parentheses around comparison in operand of \xe2\x80\x98\x1b[01m\x1b[K|\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses\x07-Wparentheses\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.615315] (camera_stream) StderrLine: {'line': b'   34 |         if(\x1b[01;35m\x1b[Kmsg->camera_select == CAMERA_SELECT_DRONE\x1b[m\x1b[K | 1){\n'}
+[5.615392] (camera_stream) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.710390] (-) TimerEvent: {}
+[5.810676] (-) TimerEvent: {}
+[5.910971] (-) TimerEvent: {}
+[6.011267] (-) TimerEvent: {}
+[6.111550] (-) TimerEvent: {}
+[6.211888] (-) TimerEvent: {}
+[6.312217] (-) TimerEvent: {}
+[6.412587] (-) TimerEvent: {}
+[6.512886] (-) TimerEvent: {}
+[6.613284] (-) TimerEvent: {}
+[6.713587] (-) TimerEvent: {}
+[6.813821] (-) TimerEvent: {}
+[6.914204] (-) TimerEvent: {}
+[7.014459] (-) TimerEvent: {}
+[7.114764] (-) TimerEvent: {}
+[7.215013] (-) TimerEvent: {}
+[7.315273] (-) TimerEvent: {}
+[7.353257] (camera_stream) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking CXX executable camera_stream_publisher\x1b[0m\n'}
+[7.415403] (-) TimerEvent: {}
+[7.515708] (-) TimerEvent: {}
+[7.615997] (-) TimerEvent: {}
+[7.679553] (camera_stream) StdoutLine: {'line': b'[ 97%] Built target camera_stream_publisher\n'}
+[7.716127] (-) TimerEvent: {}
+[7.816397] (-) TimerEvent: {}
+[7.916677] (-) TimerEvent: {}
+[8.016984] (-) TimerEvent: {}
+[8.117208] (-) TimerEvent: {}
+[8.217456] (-) TimerEvent: {}
+[8.317734] (-) TimerEvent: {}
+[8.418013] (-) TimerEvent: {}
+[8.518332] (-) TimerEvent: {}
+[8.618591] (-) TimerEvent: {}
+[8.718880] (-) TimerEvent: {}
+[8.819191] (-) TimerEvent: {}
+[8.919503] (-) TimerEvent: {}
+[9.009710] (camera_stream) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable camera_stream_receiver\x1b[0m\n'}
+[9.019598] (-) TimerEvent: {}
+[9.119867] (-) TimerEvent: {}
+[9.220215] (-) TimerEvent: {}
+[9.320587] (-) TimerEvent: {}
+[9.420902] (-) TimerEvent: {}
+[9.442738] (camera_stream) StdoutLine: {'line': b'[100%] Built target camera_stream_receiver\n'}
+[9.453810] (camera_stream) CommandEnded: {'returncode': 0}
+[9.454395] (camera_stream) JobProgress: {'identifier': 'camera_stream', 'progress': 'install'}
+[9.465099] (camera_stream) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kevin/radar_ws/build/camera_stream'], 'cwd': '/home/kevin/radar_ws/build/camera_stream', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kevin', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'PARENT_WINDOW_ID': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code-url-handler.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2304', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2520', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4568', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'JOURNAL_STREAM': '9:15843', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2520,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2520', 'INVOCATION_ID': 'adab7630fdaf4459a9e51566130c00cd', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/26e5d884_cc85_4e2a_bc7a_f2647d25bd74', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3LBYN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.107', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/camera_stream', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'GIO_USE_VFS': 'local', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[9.475945] (camera_stream) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.476170] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/rosidl_interfaces/camera_stream\n'}
+[9.476418] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/msg/ShareImage.json\n'}
+[9.476674] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream\n'}
+[9.476766] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg\n'}
+[9.476849] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_generator_c__visibility_control.h\n'}
+[9.476929] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/share_image.h\n'}
+[9.477006] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail\n'}
+[9.477095] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.h\n'}
+[9.477192] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__functions.c\n'}
+[9.477266] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__description.c\n'}
+[9.477305] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__functions.h\n'}
+[9.477342] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.c\n'}
+[9.477380] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__struct.h\n'}
+[9.477416] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/library_path.sh\n'}
+[9.477451] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/library_path.dsv\n'}
+[9.477510] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_generator_c.so\n'}
+[9.477548] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_generator_c.so" to ""\n'}
+[9.477585] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream\n'}
+[9.477622] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg\n'}
+[9.477659] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[9.477712] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail\n'}
+[9.477748] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__rosidl_typesupport_fastrtps_c.h\n'}
+[9.477785] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_fastrtps_c.so\n'}
+[9.477905] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[9.477941] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream\n'}
+[9.477975] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg\n'}
+[9.478009] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[9.478045] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/share_image.hpp\n'}
+[9.478109] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail\n'}
+[9.478179] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__builder.hpp\n'}
+[9.478215] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__struct.hpp\n'}
+[9.478251] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.hpp\n'}
+[9.478285] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__traits.hpp\n'}
+[9.478318] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream\n'}
+[9.478352] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg\n'}
+[9.478387] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[9.478422] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail\n'}
+[9.478456] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.478502] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/dds_fastrtps\n'}
+[9.478563] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_fastrtps_cpp.so\n'}
+[9.478598] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[9.478630] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream\n'}
+[9.478662] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg\n'}
+[9.478696] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[9.478730] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail\n'}
+[9.478766] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__rosidl_typesupport_introspection_c.h\n'}
+[9.478800] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.c\n'}
+[9.478834] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_introspection_c.so\n'}
+[9.478880] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_introspection_c.so" to ""\n'}
+[9.478939] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_c.so\n'}
+[9.478975] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_c.so" to ""\n'}
+[9.479011] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream\n'}
+[9.479045] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg\n'}
+[9.479080] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail\n'}
+[9.479114] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.479167] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.cpp\n'}
+[9.479201] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_introspection_cpp.so\n'}
+[9.479233] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[9.479268] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_cpp.so\n'}
+[9.479313] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_cpp.so" to ""\n'}
+[9.479348] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/pythonpath.sh\n'}
+[9.479390] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/pythonpath.dsv\n'}
+[9.479440] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info\n'}
+[9.479479] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[9.479535] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info/top_level.txt\n'}
+[9.479569] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info/PKG-INFO\n'}
+[9.479603] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[9.479652] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream\n'}
+[9.479690] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_c.so\n'}
+[9.479742] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/_camera_stream_s.ep.rosidl_typesupport_c.c\n'}
+[9.479777] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/_camera_stream_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[9.479812] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/__init__.py\n'}
+[9.479862] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/_camera_stream_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[9.479898] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_fastrtps_c.so\n'}
+[9.479932] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg\n'}
+[9.479981] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg/_share_image.py\n'}
+[9.480018] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg/__init__.py\n'}
+[9.480054] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg/_share_image_s.c\n'}
+[9.480099] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_introspection_c.so\n'}
+[9.520842] (camera_stream) StdoutLine: {'line': b"Listing '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream'...\n"}
+[9.520935] (-) TimerEvent: {}
+[9.520993] (camera_stream) StdoutLine: {'line': b"Compiling '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/__init__.py'...\n"}
+[9.521040] (camera_stream) StdoutLine: {'line': b"Listing '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg'...\n"}
+[9.521076] (camera_stream) StdoutLine: {'line': b"Compiling '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg/__init__.py'...\n"}
+[9.521111] (camera_stream) StdoutLine: {'line': b"Compiling '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg/_share_image.py'...\n"}
+[9.524512] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_fastrtps_c.so\n'}
+[9.524791] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[9.524953] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_introspection_c.so\n'}
+[9.525041] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_introspection_c.so" to ""\n'}
+[9.525087] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_c.so\n'}
+[9.525289] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_c.so" to ""\n'}
+[9.525343] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_generator_py.so\n'}
+[9.525380] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_generator_py.so" to ""\n'}
+[9.525434] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/rust_packages/camera_stream\n'}
+[9.525471] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust\n'}
+[9.525505] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/Cargo.toml\n'}
+[9.525538] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src\n'}
+[9.525572] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src/msg.rs\n'}
+[9.525605] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src/lib.rs\n'}
+[9.525639] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src/msg\n'}
+[9.525673] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src/msg/rmw.rs\n'}
+[9.525706] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/build.rs\n'}
+[9.525739] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/msg/ShareImage.idl\n'}
+[9.525772] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/msg/ShareImage.msg\n'}
+[9.525805] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/camera_stream/camera_stream_publisher\n'}
+[9.526263] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/camera_stream/camera_stream_publisher" to ""\n'}
+[9.526370] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/camera_stream/camera_stream_receiver\n'}
+[9.528686] (camera_stream) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/camera_stream/lib/camera_stream/camera_stream_receiver" to ""\n'}
+[9.528778] (camera_stream) StdoutLine: {'line': b'-- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/\n'}
+[9.528822] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include//MvCameraControl.h\n'}
+[9.528884] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include//CameraParams.h\n'}
+[9.528924] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include//MvISPErrorDefine.h\n'}
+[9.528961] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include//MvErrorDefine.h\n'}
+[9.528997] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include//HKCamera.h\n'}
+[9.529054] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include//MvObsoleteInterfaces.h\n'}
+[9.529103] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include//ObsoleteCamParams.h\n'}
+[9.529169] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/include//PixelType.h\n'}
+[9.529227] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/lib/camera_stream/libMvCameraControl.so\n'}
+[9.529288] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/package_run_dependencies/camera_stream\n'}
+[9.529344] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/parent_prefix_path/camera_stream\n'}
+[9.529380] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/ament_prefix_path.sh\n'}
+[9.529432] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/ament_prefix_path.dsv\n'}
+[9.529468] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/path.sh\n'}
+[9.529518] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/path.dsv\n'}
+[9.529556] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/local_setup.bash\n'}
+[9.529606] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/local_setup.sh\n'}
+[9.529641] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/local_setup.zsh\n'}
+[9.529690] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/local_setup.dsv\n'}
+[9.529724] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/package.dsv\n'}
+[9.529768] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/packages/camera_stream\n'}
+[9.529813] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_cExport.cmake\n'}
+[9.529861] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_cExport-noconfig.cmake\n'}
+[9.529921] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[9.529977] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[9.530032] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_cppExport.cmake\n'}
+[9.530086] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[9.530139] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[9.530198] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_introspection_cExport.cmake\n'}
+[9.530241] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[9.530293] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_cExport.cmake\n'}
+[9.530339] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[9.530392] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[9.530439] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[9.530491] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_cppExport.cmake\n'}
+[9.530538] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[9.530592] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_pyExport.cmake\n'}
+[9.530635] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_pyExport-noconfig.cmake\n'}
+[9.530686] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/rosidl_cmake-extras.cmake\n'}
+[9.530731] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[9.530779] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[9.530825] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[9.530873] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[9.530918] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[9.530963] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[9.531009] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_streamConfig.cmake\n'}
+[9.531054] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_streamConfig-version.cmake\n'}
+[9.531100] (camera_stream) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/package.xml\n'}
+[9.532553] (camera_stream) CommandEnded: {'returncode': 0}
+[9.544875] (camera_stream) JobEnded: {'identifier': 'camera_stream', 'rc': 0}
+[9.545224] (vision_detector) JobStarted: {'identifier': 'vision_detector'}
+[9.547019] (pnp_calibration) JobStarted: {'identifier': 'pnp_calibration'}
+[9.550683] (vision_detector) JobProgress: {'identifier': 'vision_detector', 'progress': 'cmake'}
+[9.551023] (vision_detector) Command: {'cmd': ['/usr/bin/cmake', '/home/kevin/radar_ws/src/vision_detector', '-DCMAKE_INSTALL_PREFIX=/home/kevin/radar_ws/install/vision_detector'], 'cwd': '/home/kevin/radar_ws/build/vision_detector', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kevin', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/kevin/radar_ws/install/camera_stream/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'PARENT_WINDOW_ID': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code-url-handler.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2304', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2520', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4568', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'JOURNAL_STREAM': '9:15843', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2520,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2520', 'INVOCATION_ID': 'adab7630fdaf4459a9e51566130c00cd', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/26e5d884_cc85_4e2a_bc7a_f2647d25bd74', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3LBYN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.107', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/vision_detector', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'GIO_USE_VFS': 'local', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[9.553050] (pnp_calibration) JobProgress: {'identifier': 'pnp_calibration', 'progress': 'cmake'}
+[9.553365] (pnp_calibration) Command: {'cmd': ['/usr/bin/cmake', '/home/kevin/radar_ws/src/pnp_calibration', '-DCMAKE_INSTALL_PREFIX=/home/kevin/radar_ws/install/pnp_calibration'], 'cwd': '/home/kevin/radar_ws/build/pnp_calibration', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kevin', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/kevin/radar_ws/install/camera_stream/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'PARENT_WINDOW_ID': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code-url-handler.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2304', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2520', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4568', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'JOURNAL_STREAM': '9:15843', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2520,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2520', 'INVOCATION_ID': 'adab7630fdaf4459a9e51566130c00cd', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/26e5d884_cc85_4e2a_bc7a_f2647d25bd74', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3LBYN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.107', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/pnp_calibration', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'GIO_USE_VFS': 'local', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[9.597757] (pnp_calibration) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[9.602498] (vision_detector) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[9.621053] (-) TimerEvent: {}
+[9.648360] (pnp_calibration) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[9.650226] (vision_detector) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[9.665218] (pnp_calibration) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[9.671043] (vision_detector) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[9.721167] (-) TimerEvent: {}
+[9.773592] (pnp_calibration) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[9.774589] (vision_detector) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[9.782098] (pnp_calibration) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[9.782364] (pnp_calibration) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[9.782605] (pnp_calibration) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[9.784349] (vision_detector) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[9.784560] (vision_detector) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[9.784803] (vision_detector) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[9.791335] (pnp_calibration) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[9.794621] (vision_detector) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[9.821247] (-) TimerEvent: {}
+[9.902092] (pnp_calibration) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[9.903831] (vision_detector) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[9.908958] (pnp_calibration) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[9.909064] (pnp_calibration) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[9.909567] (pnp_calibration) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[9.910506] (vision_detector) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[9.910637] (vision_detector) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[9.910871] (pnp_calibration) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[9.910931] (vision_detector) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[9.912372] (vision_detector) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[9.921334] (-) TimerEvent: {}
+[10.017896] (pnp_calibration) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[10.021402] (-) TimerEvent: {}
+[10.026119] (vision_detector) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[10.088549] (pnp_calibration) StdoutLine: {'line': b'-- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[10.100088] (vision_detector) StdoutLine: {'line': b'-- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[10.113682] (pnp_calibration) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[10.121477] (-) TimerEvent: {}
+[10.122025] (pnp_calibration) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[10.129173] (vision_detector) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[10.132238] (pnp_calibration) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[10.137654] (vision_detector) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[10.144551] (pnp_calibration) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[10.152485] (vision_detector) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[10.171132] (vision_detector) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[10.199153] (pnp_calibration) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[10.200818] (pnp_calibration) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[10.221616] (-) TimerEvent: {}
+[10.222565] (vision_detector) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[10.224230] (vision_detector) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[10.265412] (pnp_calibration) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[10.288491] (pnp_calibration) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[10.295430] (vision_detector) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[10.310775] (pnp_calibration) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[10.312981] (vision_detector) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[10.321706] (-) TimerEvent: {}
+[10.332466] (vision_detector) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[10.366691] (pnp_calibration) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.6.0") \n'}
+[10.366848] (pnp_calibration) StdoutLine: {'line': b'-- Found camera_stream: 0.0.0 (/home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake)\n'}
+[10.388112] (vision_detector) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.6.0") \n'}
+[10.388337] (vision_detector) StdoutLine: {'line': b'-- Found camera_stream: 0.0.0 (/home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake)\n'}
+[10.389953] (pnp_calibration) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[10.411459] (vision_detector) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[10.421771] (-) TimerEvent: {}
+[10.422275] (vision_detector) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[10.424278] (vision_detector) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[10.459836] (pnp_calibration) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[10.460012] (pnp_calibration) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[10.460093] (pnp_calibration) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[10.460293] (pnp_calibration) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[10.460918] (pnp_calibration) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[10.461083] (pnp_calibration) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[10.461288] (pnp_calibration) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[10.463018] (pnp_calibration) StdoutLine: {'line': b'-- Configuring done (0.9s)\n'}
+[10.472345] (pnp_calibration) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[10.474895] (pnp_calibration) StdoutLine: {'line': b'-- Build files have been written to: /home/kevin/radar_ws/build/pnp_calibration\n'}
+[10.481484] (pnp_calibration) CommandEnded: {'returncode': 0}
+[10.481812] (pnp_calibration) JobProgress: {'identifier': 'pnp_calibration', 'progress': 'build'}
+[10.481834] (pnp_calibration) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kevin/radar_ws/build/pnp_calibration', '--', '-j32', '-l32'], 'cwd': '/home/kevin/radar_ws/build/pnp_calibration', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kevin', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/kevin/radar_ws/install/camera_stream/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'PARENT_WINDOW_ID': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code-url-handler.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2304', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2520', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4568', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'JOURNAL_STREAM': '9:15843', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2520,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2520', 'INVOCATION_ID': 'adab7630fdaf4459a9e51566130c00cd', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/26e5d884_cc85_4e2a_bc7a_f2647d25bd74', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3LBYN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.107', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/pnp_calibration', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'GIO_USE_VFS': 'local', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[10.521868] (-) TimerEvent: {}
+[10.525465] (pnp_calibration) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/node_pnp_calibration.dir/src/node_pnp_calibration.cpp.o\x1b[0m\n'}
+[10.525732] (pnp_calibration) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/node_pnp_calibration.dir/src/ui.cpp.o\x1b[0m\n'}
+[10.525893] (pnp_calibration) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/node_pnp_calibration.dir/src/calibration.cpp.o\x1b[0m\n'}
+[10.622010] (-) TimerEvent: {}
+[10.722317] (-) TimerEvent: {}
+[10.822557] (-) TimerEvent: {}
+[10.888573] (vision_detector) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[10.922680] (-) TimerEvent: {}
+[11.023020] (-) TimerEvent: {}
+[11.123282] (-) TimerEvent: {}
+[11.223522] (-) TimerEvent: {}
+[11.245300] (pnp_calibration) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/pnp_calibration/src/ui.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[01;32m\x1b[K cameraMouseCallback\x1b[m\x1b[K(int, int, int, int, void*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[11.245506] (pnp_calibration) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/pnp_calibration/src/ui.cpp:6:62:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kflags\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[11.245592] (pnp_calibration) StderrLine: {'line': b'    6 | static void cameraMouseCallback(int event, int x, int y, \x1b[01;35m\x1b[Kint flags\x1b[m\x1b[K, void* userdata) {\n'}
+[11.245667] (pnp_calibration) StderrLine: {'line': b'      |                                                          \x1b[01;35m\x1b[K~~~~^~~~~\x1b[m\x1b[K\n'}
+[11.245741] (pnp_calibration) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/pnp_calibration/src/ui.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[01;32m\x1b[K mapMouseCallback\x1b[m\x1b[K(int, int, int, int, void*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[11.245814] (pnp_calibration) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/pnp_calibration/src/ui.cpp:16:59:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kflags\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[11.245890] (pnp_calibration) StderrLine: {'line': b'   16 | static void mapMouseCallback(int event, int x, int y, \x1b[01;35m\x1b[Kint flags\x1b[m\x1b[K, void* userdata) {\n'}
+[11.245962] (pnp_calibration) StderrLine: {'line': b'      |                                                       \x1b[01;35m\x1b[K~~~~^~~~~\x1b[m\x1b[K\n'}
+[11.323712] (-) TimerEvent: {}
+[11.423961] (-) TimerEvent: {}
+[11.520764] (vision_detector) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[11.524074] (-) TimerEvent: {}
+[11.624312] (-) TimerEvent: {}
+[11.724567] (-) TimerEvent: {}
+[11.755840] (vision_detector) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[11.757544] (vision_detector) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[11.824753] (-) TimerEvent: {}
+[11.861489] (vision_detector) StdoutLine: {'line': b'-- Found PythonExtra: /usr/bin/python3  \n'}
+[11.924879] (-) TimerEvent: {}
+[12.025136] (-) TimerEvent: {}
+[12.125392] (-) TimerEvent: {}
+[12.186375] (vision_detector) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[12.225486] (-) TimerEvent: {}
+[12.254870] (vision_detector) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[12.257186] (vision_detector) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):\n'}
+[12.257311] (vision_detector) StderrLine: {'line': b'  Use rosidl_get_typesupport_target() and target_link_libraries() instead of\n'}
+[12.257388] (vision_detector) StderrLine: {'line': b'  rosidl_target_interfaces().  i.e:\n'}
+[12.257458] (vision_detector) StderrLine: {'line': b'\n'}
+[12.257527] (vision_detector) StderrLine: {'line': b'    rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")\n'}
+[12.257596] (vision_detector) StderrLine: {'line': b'    target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")\n'}
+[12.257664] (vision_detector) StderrLine: {'line': b'\n'}
+[12.257731] (vision_detector) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[12.257803] (vision_detector) StderrLine: {'line': b'  CMakeLists.txt:60 (rosidl_target_interfaces)\n'}
+[12.257872] (vision_detector) StderrLine: {'line': b'\n'}
+[12.257938] (vision_detector) StderrLine: {'line': b'\x1b[0m\n'}
+[12.259249] (vision_detector) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[12.259534] (vision_detector) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/kevin/radar_ws/src/vision_detector/include;/home/kevin/radar_ws/src/vision_detector/..\n'}
+[12.259640] (vision_detector) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[12.260116] (vision_detector) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[12.260766] (vision_detector) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[12.260878] (vision_detector) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[12.261076] (vision_detector) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[12.264785] (vision_detector) StdoutLine: {'line': b'-- Configuring done (2.7s)\n'}
+[12.301125] (vision_detector) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[12.310053] (vision_detector) StdoutLine: {'line': b'-- Build files have been written to: /home/kevin/radar_ws/build/vision_detector\n'}
+[12.318833] (vision_detector) CommandEnded: {'returncode': 0}
+[12.319455] (vision_detector) JobProgress: {'identifier': 'vision_detector', 'progress': 'build'}
+[12.319478] (vision_detector) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kevin/radar_ws/build/vision_detector', '--', '-j32', '-l32'], 'cwd': '/home/kevin/radar_ws/build/vision_detector', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kevin', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/kevin/radar_ws/install/camera_stream/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'PARENT_WINDOW_ID': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code-url-handler.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2304', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2520', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4568', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'JOURNAL_STREAM': '9:15843', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2520,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2520', 'INVOCATION_ID': 'adab7630fdaf4459a9e51566130c00cd', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/26e5d884_cc85_4e2a_bc7a_f2647d25bd74', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3LBYN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.107', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/vision_detector', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'GIO_USE_VFS': 'local', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[12.325595] (-) TimerEvent: {}
+[12.359233] (vision_detector) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[12.360295] (vision_detector) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[12.366975] (vision_detector) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_copy_vision_detector\n'}
+[12.425737] (-) TimerEvent: {}
+[12.500038] (vision_detector) StdoutLine: {'line': b'[  4%] Built target vision_detector__rosidl_generator_type_description\n'}
+[12.503199] (vision_detector) StdoutLine: {'line': b'running egg_info\n'}
+[12.503908] (vision_detector) StdoutLine: {'line': b'creating vision_detector.egg-info\n'}
+[12.508284] (vision_detector) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[12.509359] (vision_detector) StdoutLine: {'line': b'[  6%] Built target vision_detector__rs\n'}
+[12.514271] (vision_detector) StdoutLine: {'line': b'writing vision_detector.egg-info/PKG-INFO\n'}
+[12.514456] (vision_detector) StdoutLine: {'line': b'writing dependency_links to vision_detector.egg-info/dependency_links.txt\n'}
+[12.514538] (vision_detector) StdoutLine: {'line': b'writing top-level names to vision_detector.egg-info/top_level.txt\n'}
+[12.514611] (vision_detector) StdoutLine: {'line': b"writing manifest file 'vision_detector.egg-info/SOURCES.txt'\n"}
+[12.516309] (vision_detector) StdoutLine: {'line': b'[  8%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[12.525851] (-) TimerEvent: {}
+[12.543821] (vision_detector) StdoutLine: {'line': b"reading manifest file 'vision_detector.egg-info/SOURCES.txt'\n"}
+[12.544138] (vision_detector) StdoutLine: {'line': b"writing manifest file 'vision_detector.egg-info/SOURCES.txt'\n"}
+[12.564504] (vision_detector) StdoutLine: {'line': b'[  8%] Built target ament_cmake_python_build_vision_detector_egg\n'}
+[12.625977] (-) TimerEvent: {}
+[12.689926] (vision_detector) StdoutLine: {'line': b'[  8%] Built target vision_detector__cpp\n'}
+[12.705380] (vision_detector) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_generator_c.dir/rosidl_generator_c/vision_detector/msg/detail/drone_diff__functions.c.o\x1b[0m\n'}
+[12.706369] (vision_detector) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_generator_c.dir/rosidl_generator_c/vision_detector/msg/detail/gimbal_info__description.c.o\x1b[0m\n'}
+[12.706638] (vision_detector) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_generator_c.dir/rosidl_generator_c/vision_detector/msg/detail/drone_diff__description.c.o\x1b[0m\n'}
+[12.706855] (vision_detector) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_generator_c.dir/rosidl_generator_c/vision_detector/msg/detail/drone_diff__type_support.c.o\x1b[0m\n'}
+[12.707423] (vision_detector) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_generator_c.dir/rosidl_generator_c/vision_detector/msg/detail/gimbal_info__functions.c.o\x1b[0m\n'}
+[12.708106] (vision_detector) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_generator_c.dir/rosidl_generator_c/vision_detector/msg/detail/gimbal_info__type_support.c.o\x1b[0m\n'}
+[12.726105] (-) TimerEvent: {}
+[12.739798] (vision_detector) StdoutLine: {'line': b'[ 22%] \x1b[32m\x1b[1mLinking C shared library libvision_detector__rosidl_generator_c.so\x1b[0m\n'}
+[12.776532] (vision_detector) StdoutLine: {'line': b'[ 22%] Built target vision_detector__rosidl_generator_c\n'}
+[12.785766] (vision_detector) StdoutLine: {'line': b'[ 26%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[12.785958] (vision_detector) StdoutLine: {'line': b'[ 26%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[12.786057] (vision_detector) StdoutLine: {'line': b'[ 28%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[12.786553] (vision_detector) StdoutLine: {'line': b'[ 30%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[12.786935] (vision_detector) StdoutLine: {'line': b'[ 32%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[12.787131] (vision_detector) StdoutLine: {'line': b'[ 34%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[12.826294] (-) TimerEvent: {}
+[12.926594] (-) TimerEvent: {}
+[12.944318] (vision_detector) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/vision_detector/msg/drone_diff__type_support.cpp.o\x1b[0m\n'}
+[12.944607] (vision_detector) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/vision_detector/msg/gimbal_info__type_support.cpp.o\x1b[0m\n'}
+[12.953305] (vision_detector) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_c.dir/rosidl_typesupport_c/vision_detector/msg/gimbal_info__type_support.cpp.o\x1b[0m\n'}
+[12.954126] (vision_detector) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_c.dir/rosidl_typesupport_c/vision_detector/msg/drone_diff__type_support.cpp.o\x1b[0m\n'}
+[12.957851] (vision_detector) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/vision_detector/msg/detail/drone_diff__type_support.c.o\x1b[0m\n'}
+[12.958053] (vision_detector) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/vision_detector/msg/detail/gimbal_info__type_support.c.o\x1b[0m\n'}
+[12.968119] (vision_detector) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/vision_detector/msg/detail/drone_diff__type_support.cpp.o\x1b[0m\n'}
+[12.968535] (vision_detector) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/vision_detector/msg/detail/gimbal_info__type_support.cpp.o\x1b[0m\n'}
+[12.971611] (vision_detector) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/vision_detector/msg/detail/dds_fastrtps/gimbal_info__type_support.cpp.o\x1b[0m\n'}
+[12.976706] (vision_detector) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/vision_detector/msg/detail/dds_fastrtps/drone_diff__type_support.cpp.o\x1b[0m\n'}
+[12.981526] (vision_detector) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/vision_detector/msg/detail/drone_diff__type_support_c.cpp.o\x1b[0m\n'}
+[12.983794] (vision_detector) StdoutLine: {'line': b'[ 59%] \x1b[32m\x1b[1mLinking C shared library libvision_detector__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[12.983963] (vision_detector) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/vision_detector__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/vision_detector/msg/detail/gimbal_info__type_support_c.cpp.o\x1b[0m\n'}
+[12.990765] (vision_detector) StdoutLine: {'line': b'[ 63%] \x1b[32m\x1b[1mLinking CXX shared library libvision_detector__rosidl_typesupport_c.so\x1b[0m\n'}
+[13.006591] (vision_detector) StdoutLine: {'line': b'[ 63%] Built target vision_detector__rosidl_typesupport_introspection_c\n'}
+[13.024520] (vision_detector) StdoutLine: {'line': b'[ 63%] Built target vision_detector__rosidl_typesupport_c\n'}
+[13.026683] (-) TimerEvent: {}
+[13.126956] (-) TimerEvent: {}
+[13.149343] (vision_detector) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX shared library libvision_detector__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[13.186796] (vision_detector) StdoutLine: {'line': b'[ 65%] Built target vision_detector__rosidl_typesupport_cpp\n'}
+[13.227094] (-) TimerEvent: {}
+[13.245561] (vision_detector) StdoutLine: {'line': b'[ 67%] \x1b[32m\x1b[1mLinking CXX shared library libvision_detector__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[13.253390] (vision_detector) StdoutLine: {'line': b'[ 69%] \x1b[32m\x1b[1mLinking CXX shared library libvision_detector__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[13.270322] (vision_detector) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX shared library libvision_detector__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[13.283687] (vision_detector) StdoutLine: {'line': b'[ 71%] Built target vision_detector__rosidl_typesupport_introspection_cpp\n'}
+[13.293283] (vision_detector) StdoutLine: {'line': b'[ 71%] Built target vision_detector__rosidl_typesupport_fastrtps_cpp\n'}
+[13.307985] (vision_detector) StdoutLine: {'line': b'[ 71%] Built target vision_detector__rosidl_typesupport_fastrtps_c\n'}
+[13.325370] (vision_detector) StdoutLine: {'line': b'[ 71%] Built target vision_detector\n'}
+[13.327193] (-) TimerEvent: {}
+[13.337718] (vision_detector) StderrLine: {'line': b'gmake[2]: *** \xe6\xb2\xa1\xe6\x9c\x89\xe8\xa7\x84\xe5\x88\x99\xe5\x8f\xaf\xe5\x88\xb6\xe4\xbd\x9c\xe7\x9b\xae\xe6\xa0\x87\xe2\x80\x9c/home/seaber/onnxruntime-linux-x64-gpu-1.23.2/lib/libonnxruntime.so\xe2\x80\x9d\xef\xbc\x8c\xe7\x94\xb1\xe2\x80\x9cnode_vision_drone_detector\xe2\x80\x9d \xe9\x9c\x80\xe6\xb1\x82\xe3\x80\x82 \xe5\x81\x9c\xe6\xad\xa2\xe3\x80\x82\n'}
+[13.337890] (vision_detector) StderrLine: {'line': b'gmake[2]: *** \xe6\xad\xa3\xe5\x9c\xa8\xe7\xad\x89\xe5\xbe\x85\xe6\x9c\xaa\xe5\xae\x8c\xe6\x88\x90\xe7\x9a\x84\xe4\xbb\xbb\xe5\x8a\xa1....\n'}
+[13.342114] (vision_detector) StdoutLine: {'line': b'[ 73%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[13.342922] (vision_detector) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/node_vision_drone_detector.dir/src/ekf_tracker.cpp.o\x1b[0m\n'}
+[13.343624] (vision_detector) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/node_vision_drone_detector.dir/src/node_vision_drone_detector.cpp.o\x1b[0m\n'}
+[13.343827] (vision_detector) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/node_vision_drone_detector.dir/src/target_detector.cpp.o\x1b[0m\n'}
+[13.427308] (-) TimerEvent: {}
+[13.527686] (-) TimerEvent: {}
+[13.554983] (vision_detector) StdoutLine: {'line': b'[ 79%] Built target vision_detector__py\n'}
+[13.572626] (vision_detector) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_generator_py.dir/rosidl_generator_py/vision_detector/msg/_drone_diff_s.c.o\x1b[0m\n'}
+[13.572826] (vision_detector) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/vision_detector__rosidl_generator_py.dir/rosidl_generator_py/vision_detector/msg/_gimbal_info_s.c.o\x1b[0m\n'}
+[13.627824] (-) TimerEvent: {}
+[13.662754] (vision_detector) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking C shared library libvision_detector__rosidl_generator_py.so\x1b[0m\n'}
+[13.698471] (vision_detector) StdoutLine: {'line': b'[ 85%] Built target vision_detector__rosidl_generator_py\n'}
+[13.716084] (vision_detector) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/vision_detector_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/vision_detector/_vision_detector_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[13.717812] (vision_detector) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/vision_detector_s__rosidl_typesupport_c.dir/rosidl_generator_py/vision_detector/_vision_detector_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[13.718126] (vision_detector) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/vision_detector_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/vision_detector/_vision_detector_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[13.727919] (-) TimerEvent: {}
+[13.790217] (vision_detector) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/vision_detector/vision_detector_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[13.791883] (vision_detector) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/vision_detector/vision_detector_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[13.796818] (vision_detector) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/vision_detector/vision_detector_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[13.816991] (vision_detector) StdoutLine: {'line': b'[ 97%] Built target vision_detector_s__rosidl_typesupport_fastrtps_c\n'}
+[13.818167] (vision_detector) StdoutLine: {'line': b'[ 97%] Built target vision_detector_s__rosidl_typesupport_introspection_c\n'}
+[13.822093] (vision_detector) StdoutLine: {'line': b'[ 97%] Built target vision_detector_s__rosidl_typesupport_c\n'}
+[13.828069] (-) TimerEvent: {}
+[13.928349] (-) TimerEvent: {}
+[14.028662] (-) TimerEvent: {}
+[14.104658] (vision_detector) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/vision_detector/src/target_detector.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<cv::Point_<float> >\x1b[01;32m\x1b[K detectLaserModule\x1b[m\x1b[K(const cv::Mat&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[14.104864] (vision_detector) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/vision_detector/src/target_detector.cpp:276:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kmax_area\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[14.104957] (vision_detector) StderrLine: {'line': b'  276 |     int \x1b[01;35m\x1b[Kmax_area\x1b[m\x1b[K = (motion > 2.0f) ? 320 : 220;  // \xe5\x8e\x9f 260/180\n'}
+[14.105041] (vision_detector) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[14.128797] (-) TimerEvent: {}
+[14.229105] (-) TimerEvent: {}
+[14.329392] (-) TimerEvent: {}
+[14.429683] (-) TimerEvent: {}
+[14.529986] (-) TimerEvent: {}
+[14.630285] (-) TimerEvent: {}
+[14.730595] (-) TimerEvent: {}
+[14.830892] (-) TimerEvent: {}
+[14.931223] (-) TimerEvent: {}
+[15.031519] (-) TimerEvent: {}
+[15.102048] (vision_detector) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/vision_detector/src/node_vision_drone_detector.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[01;32m\x1b[K mouseCallback\x1b[m\x1b[K(int, int, int, int, void*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[15.102255] (vision_detector) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/vision_detector/src/node_vision_drone_detector.cpp:561:56:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kflags\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[15.102340] (vision_detector) StderrLine: {'line': b'  561 | static void mouseCallback(int event, int x, int y, \x1b[01;35m\x1b[Kint flags\x1b[m\x1b[K, void* userdata) {\n'}
+[15.102413] (vision_detector) StderrLine: {'line': b'      |                                                    \x1b[01;35m\x1b[K~~~~^~~~~\x1b[m\x1b[K\n'}
+[15.131681] (-) TimerEvent: {}
+[15.231967] (-) TimerEvent: {}
+[15.332263] (-) TimerEvent: {}
+[15.432568] (-) TimerEvent: {}
+[15.532882] (-) TimerEvent: {}
+[15.633218] (-) TimerEvent: {}
+[15.733497] (-) TimerEvent: {}
+[15.741458] (pnp_calibration) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable node_pnp_calibration\x1b[0m\n'}
+[15.833638] (-) TimerEvent: {}
+[15.933958] (-) TimerEvent: {}
+[16.034268] (-) TimerEvent: {}
+[16.134580] (-) TimerEvent: {}
+[16.188372] (pnp_calibration) StdoutLine: {'line': b'[100%] Built target node_pnp_calibration\n'}
+[16.197774] (pnp_calibration) CommandEnded: {'returncode': 0}
+[16.198641] (pnp_calibration) JobProgress: {'identifier': 'pnp_calibration', 'progress': 'install'}
+[16.198670] (pnp_calibration) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kevin/radar_ws/build/pnp_calibration'], 'cwd': '/home/kevin/radar_ws/build/pnp_calibration', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'kevin', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/kevin/radar_ws/install/camera_stream/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'PARENT_WINDOW_ID': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code-url-handler.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2304', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2520', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4568', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'JOURNAL_STREAM': '9:15843', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2520,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2520', 'INVOCATION_ID': 'adab7630fdaf4459a9e51566130c00cd', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/26e5d884_cc85_4e2a_bc7a_f2647d25bd74', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3LBYN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.107', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/pnp_calibration', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=5764884ecc2870c87ad58aba69e77c73', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'GIO_USE_VFS': 'local', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[16.204035] (pnp_calibration) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[16.204323] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/ament_index/resource_index/package_run_dependencies/pnp_calibration\n'}
+[16.204406] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/ament_index/resource_index/parent_prefix_path/pnp_calibration\n'}
+[16.204583] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/environment/ament_prefix_path.sh\n'}
+[16.204643] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/environment/ament_prefix_path.dsv\n'}
+[16.204685] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/environment/path.sh\n'}
+[16.204725] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/environment/path.dsv\n'}
+[16.204760] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/local_setup.bash\n'}
+[16.204797] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/local_setup.sh\n'}
+[16.204834] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/local_setup.zsh\n'}
+[16.204870] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/local_setup.dsv\n'}
+[16.204905] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/package.dsv\n'}
+[16.204940] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/ament_index/resource_index/packages/pnp_calibration\n'}
+[16.205006] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/cmake/pnp_calibrationConfig.cmake\n'}
+[16.205046] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/cmake/pnp_calibrationConfig-version.cmake\n'}
+[16.205093] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/share/pnp_calibration/package.xml\n'}
+[16.205127] (pnp_calibration) StdoutLine: {'line': b'-- Installing: /home/kevin/radar_ws/install/pnp_calibration/lib/pnp_calibration/node_pnp_calibration\n'}
+[16.206929] (pnp_calibration) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/pnp_calibration/lib/pnp_calibration/node_pnp_calibration" to ""\n'}
+[16.208106] (pnp_calibration) CommandEnded: {'returncode': 0}
+[16.214589] (pnp_calibration) JobEnded: {'identifier': 'pnp_calibration', 'rc': 0}
+[16.234696] (-) TimerEvent: {}
+[16.334902] (-) TimerEvent: {}
+[16.435134] (-) TimerEvent: {}
+[16.535445] (-) TimerEvent: {}
+[16.635698] (-) TimerEvent: {}
+[16.735970] (-) TimerEvent: {}
+[16.836279] (-) TimerEvent: {}
+[16.936501] (-) TimerEvent: {}
+[17.036733] (-) TimerEvent: {}
+[17.136996] (-) TimerEvent: {}
+[17.237287] (-) TimerEvent: {}
+[17.337536] (-) TimerEvent: {}
+[17.437823] (-) TimerEvent: {}
+[17.538110] (-) TimerEvent: {}
+[17.638395] (-) TimerEvent: {}
+[17.738653] (-) TimerEvent: {}
+[17.838966] (-) TimerEvent: {}
+[17.939284] (-) TimerEvent: {}
+[18.039603] (-) TimerEvent: {}
+[18.139880] (-) TimerEvent: {}
+[18.240130] (-) TimerEvent: {}
+[18.340390] (-) TimerEvent: {}
+[18.440682] (-) TimerEvent: {}
+[18.540940] (-) TimerEvent: {}
+[18.641203] (-) TimerEvent: {}
+[18.741488] (-) TimerEvent: {}
+[18.841746] (-) TimerEvent: {}
+[18.942043] (-) TimerEvent: {}
+[19.042301] (-) TimerEvent: {}
+[19.142599] (-) TimerEvent: {}
+[19.242887] (-) TimerEvent: {}
+[19.343113] (-) TimerEvent: {}
+[19.443331] (-) TimerEvent: {}
+[19.543581] (-) TimerEvent: {}
+[19.643840] (-) TimerEvent: {}
+[19.744116] (-) TimerEvent: {}
+[19.844424] (-) TimerEvent: {}
+[19.944664] (-) TimerEvent: {}
+[20.044888] (-) TimerEvent: {}
+[20.145173] (-) TimerEvent: {}
+[20.245443] (-) TimerEvent: {}
+[20.345743] (-) TimerEvent: {}
+[20.445984] (-) TimerEvent: {}
+[20.546236] (-) TimerEvent: {}
+[20.646446] (-) TimerEvent: {}
+[20.739052] (vision_detector) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:645\xef\xbc\x9aCMakeFiles/node_vision_drone_detector.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[20.739408] (vision_detector) StderrLine: {'line': b'gmake: *** [Makefile:146\xef\xbc\x9aall] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[20.741574] (vision_detector) CommandEnded: {'returncode': 2}
+[20.744613] (vision_detector) JobEnded: {'identifier': 'vision_detector', 'rc': 2}
+[20.746510] (-) TimerEvent: {}
+[20.754924] (radar_controllers) JobSkipped: {'identifier': 'radar_controllers'}
+[20.754956] (-) EventReactorShutdown: {}

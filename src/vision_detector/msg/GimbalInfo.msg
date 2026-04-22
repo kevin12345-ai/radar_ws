@@ -1,0 +1,3 @@
+float32 current_yaw
+float32 current_pitch
+uint32 last_pc_timestamp_us

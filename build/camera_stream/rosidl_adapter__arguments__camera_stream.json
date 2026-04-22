@@ -1,0 +1,6 @@
+{
+  "package_name": "camera_stream",
+  "non_idl_tuples": [
+    "/home/kevin/radar_ws/src/camera_stream:msg/ShareImage.msg"
+  ]
+}

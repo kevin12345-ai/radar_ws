@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "camera_stream__rs",
+		"source" : "/home/kevin/radar_ws/build/camera_stream/camera_stream__rs"
+	}
+}
