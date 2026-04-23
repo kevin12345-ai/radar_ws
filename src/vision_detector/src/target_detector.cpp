@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cmath>
 #include <numeric>
+#include <memory>
 std::vector<cv::Point2f> detectLaserSpot(const cv::Mat& frame);
 std::vector<cv::Point2f> detectLaserModule(const cv::Mat& frame);
 
@@ -142,399 +143,746 @@ std::vector<cv::Point2f> detectLaserSpot(const cv::Mat& frame) {
 
 
 std::vector<cv::Point2f> detectLaserModule(const cv::Mat& frame){
-    // --- 抖动抑制状态（函数静态）---
-    static cv::Point2f last_cross(-1.f, -1.f);
-    static bool has_last_cross = false;
-    static int lost_count = 0;
-
-    static cv::Point2f roi_center(-1.f, -1.f);
-    static bool has_roi_center = false;
-
-    // 新增：记录上上一帧中心用于估计速度
-    static cv::Point2f prev_cross(-1.f, -1.f);
-    static bool has_prev_cross = false;
-
-    // 新增：平滑后的动态 ROI 尺寸
-    static float roi_w_f = 320.0f;
-    static float roi_h_f = 240.0f;
-
-    const int base_roi_w = 320;
-    const int base_roi_h = 240;
-    const int max_roi_w = frame.cols;
-    const int max_roi_h = frame.rows;
-
-    // 基于“上一帧两次中心”估计速度
-    float speed = 0.0f;
-    if (has_prev_cross && has_last_cross) {
-        speed = cv::norm(last_cross - prev_cross);
-    }
-
-    // 速度映射到目标 ROI 尺寸（更明显）
-    float scale = 1.0f + std::clamp(speed / 8.0f, 0.0f, 2.5f); // 1.0 ~ 3.5
-    int target_w = std::clamp((int)std::round(base_roi_w * scale), base_roi_w, max_roi_w);
-    int target_h = std::clamp((int)std::round(base_roi_h * scale), base_roi_h, max_roi_h);
-
-    // 尺寸平滑，防止抖动
-    const float size_alpha = 0.25f;
-    roi_w_f = (1.0f - size_alpha) * roi_w_f + size_alpha * (float)target_w;
-    roi_h_f = (1.0f - size_alpha) * roi_h_f + size_alpha * (float)target_h;
-
-    int dyn_w = std::clamp((int)std::round(roi_w_f), base_roi_w, max_roi_w);
-    int dyn_h = std::clamp((int)std::round(roi_h_f), base_roi_h, max_roi_h);
-
-    // 小变化抑制（避免视觉上“没变化”）
-    static int last_dyn_w = base_roi_w, last_dyn_h = base_roi_h;
-    if (std::abs(dyn_w - last_dyn_w) < 8) dyn_w = last_dyn_w;
-    if (std::abs(dyn_h - last_dyn_h) < 8) dyn_h = last_dyn_h;
-    last_dyn_w = dyn_w;
-    last_dyn_h = dyn_h;
-
-    // 丢失时：直接全图搜索
-    cv::Rect roi_rect(0, 0, frame.cols, frame.rows);
-    if (has_roi_center && lost_count == 0) {
-        int x = (int)std::round(roi_center.x - dyn_w * 0.5f);
-        int y = (int)std::round(roi_center.y - dyn_h * 0.5f);
-        roi_rect = cv::Rect(x, y, dyn_w, dyn_h) & cv::Rect(0, 0, frame.cols, frame.rows);
-        if (roi_rect.width < 32 || roi_rect.height < 32) roi_rect = cv::Rect(0, 0, frame.cols, frame.rows);
-    }
-
-    // 在 ROI 内处理
-    cv::Mat frame_roi = frame(roi_rect);
-    cv::Mat hsv;
-    cv::cvtColor(frame_roi, hsv, cv::COLOR_BGR2HSV);
     std::vector<cv::Point2f> candidates;
-
-    // 远距增强：先增强亮小点（TopHat + 增益），再做颜色阈值
-    std::vector<cv::Mat> hsv_ch0;
-    cv::split(hsv, hsv_ch0);
-    cv::Mat v_enh;
-    cv::Mat k_tophat = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(9, 9));
-    cv::morphologyEx(hsv_ch0[2], v_enh, cv::MORPH_TOPHAT, k_tophat);
-    cv::addWeighted(hsv_ch0[2], 1.0, v_enh, 1.8, 0.0, hsv_ch0[2]); // 提亮小高光
-    cv::merge(hsv_ch0, hsv); // 回写增强后的 HSV
-
-    cv::Mat mask, red1, red2;
-    if (DETECT_COLOR == COLOR_BLUE) {
-        cv::inRange(hsv, cv::Scalar(90, 40, 55), cv::Scalar(145, 255, 255), mask);
-    } else if (DETECT_COLOR == COLOR_RED) {
-        cv::inRange(hsv, cv::Scalar(0, 35, 55), cv::Scalar(15, 255, 255), red1);
-        cv::inRange(hsv, cv::Scalar(155, 35, 55), cv::Scalar(180, 255, 255), red2);
-        cv::bitwise_or(red1, red2, mask);
-    } else {
+    if (frame.empty()) {
         return candidates;
     }
 
-    // 新增：抑制墙面反光/白亮噪声（低S高V）
-    {
-        std::vector<cv::Mat> ch;
-        cv::split(hsv, ch); // H,S,V
-        cv::Mat white_reflect_mask;
-        cv::inRange(hsv, cv::Scalar(0, 0, 200), cv::Scalar(180, 45, 255), white_reflect_mask);
-        cv::bitwise_not(white_reflect_mask, white_reflect_mask);
-        cv::bitwise_and(mask, white_reflect_mask, mask);
-    }
+    // ROI 状态缓存：依据上一帧检测中心和速度，预测下一帧搜索区域。
+    static bool roi_track_valid = false;
+    static cv::Point2f roi_track_center(0.0f, 0.0f);
+    static cv::Point2f roi_track_vel(0.0f, 0.0f); // 像素/帧
+    static int roi_lost_frames = 0;
+    static int roi_frame_counter = 0;
+    ++roi_frame_counter;
 
-    cv::Mat mask_raw = mask.clone();
+    // ===================== 可调参数区（建议现场调参） =====================
+    // 调试开关：打开后会显示每个关键步骤的中间图像。
+    const bool DEBUG_SHOW = true;
+    const int DEBUG_UPDATE_INTERVAL = 3;            // 调试窗口每 N 帧更新一次
 
-    // LM2: 先填孔，解决空心点
-    cv::Mat k2 = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2, 2));
-    cv::Mat k3 = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
-    cv::morphologyEx(mask, mask, cv::MORPH_CLOSE, k3); // 填充空心
-    cv::medianBlur(mask, mask, 3);                     // 轻去噪，不强腐蚀
+    // 是否启用“速度自适应 ROI 加速”。
+    const bool ENABLE_DYNAMIC_ROI = true;
+    const int ROI_LOST_KEEP_FRAMES = 8;             // 丢失后继续用预测 ROI 的最大帧数
+    const int ROI_FORCE_FULL_FRAME_INTERVAL = 20;   // 每 N 帧全图重扫一次，防止 ROI 漂移
+    const float ROI_BASE_HALF_SIZE = 160.0f;        // ROI 基础半边长（像素）
+    const float ROI_SPEED_GAIN = 5.2f;              // 随速度扩张 ROI 的增益
+    const float ROI_MIN_HALF_SIZE = 110.0f;
+    const float ROI_MAX_HALF_SIZE_RATIO = 0.45f;    // ROI 最大占较短边比例
+    const float ROI_PREDICT_LEAD = 1.0f;            // 预测超前（帧）
+    const float ROI_VEL_DECAY_WHEN_LOST = 0.85f;    // 丢失时速度衰减
+    const float ROI_VEL_SMOOTH_ALPHA = 0.35f;       // 新速度融合系数
 
-    // LM3: 轻开 + 距离变换分离粘连点（避免点被挖穿）
-    cv::Mat mask_open;
-    cv::morphologyEx(mask, mask_open, cv::MORPH_OPEN, k2);
+    // ROI 内进一步降采样处理（仅影响检测计算，不影响最终显示尺寸）。
+    const bool ENABLE_PROC_DOWNSAMPLE = true;
+    const int PROC_DOWNSAMPLE_TRIGGER_SIDE = 260;   // ROI 较短边超过该值时开始降采样
+    const int PROC_TARGET_MAX_SIDE = 300;           // ROI 较长边目标尺寸
+    const float PROC_MIN_SCALE = 0.65f;             // 最小降采样比例，避免过度损失细节
 
-    cv::Mat dist32f, dist8u;
-    cv::distanceTransform(mask_open, dist32f, cv::DIST_L2, 3);
-    double maxv = 0.0;
-    cv::minMaxLoc(dist32f, nullptr, &maxv);
-    double th = std::max(1.0, maxv * 0.35);           // 分离阈值
-    cv::threshold(dist32f, dist32f, th, 255.0, cv::THRESH_BINARY);
-    dist32f.convertTo(dist8u, CV_8U);
+    // 是否启用“蓝色通道差分辅助掩膜”（用于压制部分非目标蓝光反射）。
+    // 默认关闭，仅使用 HSV；当背景蓝光干扰很重时可尝试打开。
+    const bool USE_BLUE_DIFF_ASSIST = true;
 
-    // split_mask 用于 LM4 连通域，尽量把粘连拆成多个点
-    cv::Mat split_mask;
-    cv::bitwise_and(mask_open, dist8u, split_mask);
-    cv::morphologyEx(split_mask, split_mask, cv::MORPH_DILATE, k2); // 回补一点面积，防止过小
+    // 是否启用“白高光抑制”：用于去除背景反射高光造成的误检。
+    const bool ENABLE_WHITE_GLARE_SUPPRESS = true;
 
-    cv::Mat labels, stats, centroids;
-    int n = cv::connectedComponentsWithStats(split_mask, labels, stats, centroids, 8, CV_32S);
+    // HSV 阈值（OpenCV H 范围: 0~179）。
+    // 该范围覆盖青蓝色高亮 LED，且要求较高的 S/V 以过滤暗背景噪声。
+    const cv::Scalar HSV_LOWER_CYAN_BLUE(80, 80, 150);
+    const cv::Scalar HSV_UPPER_CYAN_BLUE(135, 255, 255);
 
-    std::vector<cv::Point2f> pts;
-    pts.reserve(n);
-    cv::Mat comp_vis = cv::Mat::zeros(frame.size(), CV_8UC3);
+    // 成功瞄准后模块可能偏粉紫/紫色：单独加一段紫色范围，避免“卡蓝色太死”。
+    const cv::Scalar HSV_LOWER_MAGENTA(135, 60, 150);
+    const cv::Scalar HSV_UPPER_MAGENTA(179, 255, 255);
 
-    std::vector<cv::Mat> hsv_ch;
-    cv::split(hsv, hsv_ch);
-    const cv::Mat& v_ch = hsv_ch[2];
-    double global_mean_v = cv::mean(v_ch)[0];
-    double dyn_min_v = std::clamp(global_mean_v + 6.0, 60.0, 135.0); // 原 +10 / [70,145]
+    // 白高光 HSV 阈值：低饱和 + 高亮，典型于反光白点。
+    const cv::Scalar HSV_LOWER_WHITE_GLARE(0, 0, 230);
+    const cv::Scalar HSV_UPPER_WHITE_GLARE(179, 70, 255);
+    const int WHITE_GLARE_DILATE_ITERS = 1;          // 稍微膨胀，覆盖反光边缘
+    const float WHITE_OVERLAP_MAX_RATIO = 0.35f;     // 轮廓与白高光重叠比例上限
 
-    float motion = has_last_cross ? 3.0f : 0.0f;
-    int max_area = (motion > 2.0f) ? 320 : 220;  // 原 260/180
-    float min_ratio = 0.12f;                     // 原 0.15
-    float max_ratio = 7.0f;                      // 原 6.0
+    // 通道差分辅助（仅在 USE_BLUE_DIFF_ASSIST=true 时生效）。
+    // 注意：不能只用 B-R，否则紫/粉紫会被直接掐掉。
+    const int BLUE_DIFF_THRESH = 18;
+    const int BRG_DIFF_THRESH = 18;                  // max(B,R)-G 阈值（兼容蓝/紫/粉紫）
+    const float MIN_MEAN_SATURATION = 70.0f;         // 轮廓平均饱和度下限
+    const float MIN_MEAN_MAXBR_MINUS_G = 18.0f;      // mean(max(B,R)-G) 下限，抑制白高光
 
-    for (int i = 1; i < n; ++i) {
-        int area = stats.at<int>(i, cv::CC_STAT_AREA);
-        int w = stats.at<int>(i, cv::CC_STAT_WIDTH);
-        int h = stats.at<int>(i, cv::CC_STAT_HEIGHT);
+    // 单灯块轮廓面积筛选（按图像分辨率自适应比例）。
+    const double MIN_CONTOUR_AREA_RATIO = 0.000010;  // 1080p约12像素
+    const double MAX_CONTOUR_AREA_RATIO = 0.0030;    // 1080p约6200像素
 
-        if (area < 1 || area > 160) continue; // 降低上限，避免一大团当一个点
-        if (w < 1 || h < 1 || w > 24 || h > 24) continue; // 限制单点矩形尺寸
+    // 聚类距离阈值（像素），使用较短边比例做自适应，适配 720p/1080p。
+    const float CLUSTER_DIST_RATIO = 0.085f;
 
-        float ratio = (h > 0) ? static_cast<float>(w) / h : 999.f;
-        if (ratio < min_ratio || ratio > max_ratio) continue;
+    // 组特征约束：至少包含若干灯块，整体包围框长宽比接近 1。
+    const int MIN_LIGHTS_IN_GROUP = 4;
+    const int MAX_LIGHTS_IN_GROUP = 24;
+    const float GROUP_AR_MIN = 0.6f;
+    const float GROUP_AR_MAX = 1.4f;
 
-        cv::Rect r(stats.at<int>(i, cv::CC_STAT_LEFT), stats.at<int>(i, cv::CC_STAT_TOP), w, h);
-        r &= cv::Rect(0, 0, frame.cols, frame.rows);
-        if (r.empty()) continue;
+    // 灯块填充密度：用于过滤“非常稀疏”或“几乎实心”非目标区域。
+    const float GROUP_DENSITY_MIN = 0.05f;
+    const float GROUP_DENSITY_MAX = 0.75f;
 
-        double mean_v = cv::mean(v_ch(r))[0];
-        if (mean_v < dyn_min_v) continue;
+    // 组内离群灯块过滤：抑制“突然并入的反光块”导致框体膨胀。
+    const float BLOCK_AREA_MIN_SCALE = 0.20f;        // 相对中位面积下限
+    const float BLOCK_AREA_MAX_SCALE = 4.50f;        // 相对中位面积上限
+    const float GROUP_OUTLIER_DIST_SCALE = 1.20f;    // 相对聚类阈值的距离上限
 
-        // 连通域中心点从 ROI 坐标映射回全图坐标
-        cv::Point2f c(static_cast<float>(centroids.at<double>(i, 0) + roi_rect.x),
-                      static_cast<float>(centroids.at<double>(i, 1) + roi_rect.y));
+    // 组内杂点抑制：进一步过滤孤立/离群灯块，避免框体突然变大。
+    const float GROUP_NEIGHBOR_DIST_SCALE = 0.70f;   // 邻域判断距离阈值比例
+    const int GROUP_MIN_NEIGHBORS = 1;               // 至少要有 1 个近邻，抑制孤立噪点
+    const float GROUP_MAD_SCALE = 2.6f;              // MAD 离群阈值倍数
+    const float GROUP_MAD_MIN_PIX = 7.0f;            // MAD 最小像素容差
+    const float GROUP_MAX_MEAN_DIST_SCALE = 0.82f;   // 组平均半径上限比例
+    const float GROUP_MAX_RADIUS_SCALE = 1.35f;      // 组最大半径上限比例
+    const float GROUP_CORE_RADIUS_SCALE = 1.75f;     // 相对中位半径的核心筛选阈值
+    const float GROUP_CORE_RADIUS_MIN_PIX = 9.0f;    // 核心筛选最小像素半径
 
-        // 新增：时序位置门控，抑制“被拐跑”
-        if (has_last_cross) {
-            float gate = (lost_count == 0) ? 180.0f : 260.0f; // 丢失时放宽
-            if (cv::norm(c - last_cross) > gate) continue;
-        }
+    // 目标整体尺寸上限：防止 module_4 黄框突然闪动放大。
+    const float GROUP_MAX_FRAME_AREA_RATIO = 0.10f;  // 目标占画面比例上限（10%）
+    const float GROUP_MAX_FRAME_W_RATIO = 0.38f;
+    const float GROUP_MAX_FRAME_H_RATIO = 0.38f;
+    // =====================================================================
 
-        pts.push_back(c);
+    const bool debug_update_this_frame =
+        DEBUG_SHOW && (DEBUG_UPDATE_INTERVAL <= 1 || (roi_frame_counter % DEBUG_UPDATE_INTERVAL == 0));
 
-        cv::rectangle(comp_vis, r, cv::Scalar(255, 255, 0), 1);
-        cv::circle(comp_vis, c, 2, cv::Scalar(0, 255, 255), -1);
-    }
-
-    // 邻域一致性过滤：放宽 + 亮点优先保留
-    {
-        std::vector<std::pair<cv::Point2f, float>> pts_scored;
-        pts_scored.reserve(pts.size());
-        for (auto &p : pts) {
-            int x = std::clamp((int)std::round(p.x) - roi_rect.x, 0, frame_roi.cols - 1);
-            int y = std::clamp((int)std::round(p.y) - roi_rect.y, 0, frame_roi.rows - 1);
-            pts_scored.push_back({p, (float)v_ch.at<uchar>(y, x)});
-        }
-
-        std::vector<cv::Point2f> filtered;
-        const float neighbor_dist = 65.0f;  // 原 50
-        for (size_t i = 0; i < pts_scored.size(); ++i) {
-            int cnt = 0;
-            for (size_t j = 0; j < pts_scored.size(); ++j) {
-                if (i == j) continue;
-                if (cv::norm(pts_scored[i].first - pts_scored[j].first) < neighbor_dist) cnt++;
-            }
-            // 有邻居直接保留；无邻居但亮度高也保留
-            if (cnt >= 1 || pts_scored[i].second >= (float)(dyn_min_v + 20.0)) {
-                filtered.push_back(pts_scored[i].first);
-            }
-        }
-
-        // 兜底：若仍太少，按亮度取前N个
-        if (filtered.size() < 4) {
-            std::sort(pts_scored.begin(), pts_scored.end(),
-                      [](const auto& a, const auto& b){ return a.second > b.second; });
-            filtered.clear();
-            for (size_t i = 0; i < std::min<size_t>(12, pts_scored.size()); ++i) {
-                filtered.push_back(pts_scored[i].first);
-            }
-        }
-        pts.swap(filtered);
-    }
-
-    // fallback：点仍不足时，从 mask 提角点补充
-    if (pts.size() < 4) {
-        std::vector<cv::Point2f> corners;
-        cv::goodFeaturesToTrack(mask, corners, 20, 0.01, 8);
-        for (auto &cp : corners) pts.emplace_back(cp.x + roi_rect.x, cp.y + roi_rect.y);
-
-        // 去重（近邻合并）
-        std::vector<cv::Point2f> dedup;
-        for (auto &p : pts) {
-            bool ok = true;
-            for (auto &q : dedup) {
-                if (cv::norm(p - q) < 4.0f) { ok = false; break; }
-            }
-            if (ok) dedup.push_back(p);
-        }
-        pts.swap(dedup);
-    }
-
-    if (pts.size() < 4) {
-        if (has_last_cross && lost_count < 5) {
-            candidates.push_back(last_cross);
-            lost_count++;
-        }
-
-        // 丢失即全图
-        has_roi_center = false;
-
-        // 新增：早退分支也更新调试画面
-        cv::Mat dbg = frame.clone();
-        cv::rectangle(dbg, roi_rect, cv::Scalar(0, 128, 255), 2);
-        cv::putText(dbg, "ROI", cv::Point(roi_rect.x + 4, std::max(16, roi_rect.y - 4)),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 128, 255), 1);
-        cv::putText(dbg, "Target Lost", cv::Point(20, 30),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.8, cv::Scalar(0, 0, 255), 2);
-        if (has_last_cross) {
-            cv::circle(dbg, last_cross, 6, cv::Scalar(0, 0, 255), -1);
-        }
-        cv::imshow("Detected Laser Module (Point Mode)", dbg);
-        cv::waitKey(1);
-
-        return candidates;
-    }
-
-    cv::Mat y_mat(static_cast<int>(pts.size()), 1, CV_32F);
-    for (size_t i = 0; i < pts.size(); ++i) y_mat.at<float>(static_cast<int>(i), 0) = pts[i].y;
-
-    cv::Mat labels_k;
-    cv::kmeans(y_mat, 2, labels_k,
-               cv::TermCriteria(cv::TermCriteria::EPS + cv::TermCriteria::COUNT, 10, 1.0),
-               3, cv::KMEANS_PP_CENTERS);
-
-    std::vector<cv::Point2f> row1, row2;
-    for (size_t i = 0; i < pts.size(); ++i) {
-        if (labels_k.at<int>(static_cast<int>(i), 0) == 0) row1.push_back(pts[i]);
-        else row2.push_back(pts[i]);
-    }
-    if (row1.size() < 2 || row2.size() < 2) {
-        // 分组失败视作丢失，下一帧全图
-        has_roi_center = false;
-        lost_count = std::min(lost_count + 1, 1000);
-
-        // 新增：分组失败也刷新调试
-        cv::Mat dbg = frame.clone();
-        cv::rectangle(dbg, roi_rect, cv::Scalar(0, 128, 255), 2);
-        cv::putText(dbg, "ROI", cv::Point(roi_rect.x + 4, std::max(16, roi_rect.y - 4)),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 128, 255), 1);
-        cv::putText(dbg, "Grouping Failed", cv::Point(20, 30),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.8, cv::Scalar(0, 0, 255), 2);
-        cv::imshow("Detected Laser Module (Point Mode)", dbg);
-        cv::waitKey(1);
-        return candidates;
-    }
-
-    auto meanY = [](const std::vector<cv::Point2f>& v){
-        double s = 0.0; for (auto &p : v) s += p.y; return s / std::max<size_t>(1, v.size());
+    // 获取中位数（组尺寸较小，nth_element 开销可接受）。
+    auto medianValue = [](std::vector<float> vals) -> float {
+        if (vals.empty()) return 0.0f;
+        auto mid_it = vals.begin() + static_cast<long>(vals.size() / 2);
+        std::nth_element(vals.begin(), mid_it, vals.end());
+        return *mid_it;
     };
-    if (meanY(row1) > meanY(row2)) std::swap(row1, row2);
 
-    // 行内带宽约束：剔除离群点（长焦抖动+误检）
-    auto filterRowByBand = [](std::vector<cv::Point2f>& row, float band){
-        if (row.size() < 2) return;
-        double my = 0.0; for (auto& p : row) my += p.y; my /= row.size();
-        std::vector<cv::Point2f> keep;
-        for (auto& p : row) if (std::fabs(p.y - my) <= band) keep.push_back(p);
-        if (keep.size() >= 2) row.swap(keep);
-    };
-    filterRowByBand(row1, 18.0f);
-    filterRowByBand(row2, 18.0f);
-    if (row1.size() < 2 || row2.size() < 2) return candidates;
+    // 0) 依据历史速度预测 ROI，减少全图搜索开销。
+    cv::Rect roi_rect(0, 0, frame.cols, frame.rows);
+    bool use_roi = false;
+    if (ENABLE_DYNAMIC_ROI && roi_track_valid && roi_lost_frames <= ROI_LOST_KEEP_FRAMES) {
+        const bool do_full_refresh =
+            (ROI_FORCE_FULL_FRAME_INTERVAL > 0) && (roi_frame_counter % ROI_FORCE_FULL_FRAME_INTERVAL == 0);
+        if (!do_full_refresh) {
+            const float speed = cv::norm(roi_track_vel);
+            float roi_half = ROI_BASE_HALF_SIZE + ROI_SPEED_GAIN * speed;
+            const float roi_half_max = ROI_MAX_HALF_SIZE_RATIO * static_cast<float>(std::min(frame.cols, frame.rows));
+            roi_half = std::clamp(roi_half, ROI_MIN_HALF_SIZE, std::max(ROI_MIN_HALF_SIZE, roi_half_max));
 
-    std::sort(row1.begin(), row1.end(), [](const cv::Point2f& a, const cv::Point2f& b){ return a.x < b.x; });
-    std::sort(row2.begin(), row2.end(), [](const cv::Point2f& a, const cv::Point2f& b){ return a.x < b.x; });
+            const cv::Point2f predicted_center = roi_track_center + roi_track_vel * ROI_PREDICT_LEAD;
+            const int x1 = std::clamp(static_cast<int>(std::round(predicted_center.x - roi_half)), 0, frame.cols - 1);
+            const int y1 = std::clamp(static_cast<int>(std::round(predicted_center.y - roi_half)), 0, frame.rows - 1);
+            const int x2 = std::clamp(static_cast<int>(std::round(predicted_center.x + roi_half)), 1, frame.cols);
+            const int y2 = std::clamp(static_cast<int>(std::round(predicted_center.y + roi_half)), 1, frame.rows);
 
-    cv::Point2f LU = row1.front(), RU = row1.back();
-    cv::Point2f LD = row2.front(), RD = row2.back();
-
-    // 原始交点（保留作参考）
-    cv::Point2f crossPt = intersectionPoint(LU, RD, RU, LD);
-
-    // 新中心：上下中点连线的中点（对上下边长度不一致更鲁棒）
-    cv::Point2f upper_mid = 0.5f * (LU + RU);
-    cv::Point2f lower_mid = 0.5f * (LD + RD);
-    cv::Point2f mid_center = 0.5f * (upper_mid + lower_mid);
-
-    // 融合中心：中点法为主，交点法为辅
-    cv::Point2f fused_center = mid_center;
-    if (crossPt.x >= 0 && crossPt.y >= 0 && crossPt.x < frame.cols && crossPt.y < frame.rows) {
-        fused_center = 0.8f * mid_center + 0.2f * crossPt;
+            if (x2 - x1 >= 24 && y2 - y1 >= 24) {
+                roi_rect = cv::Rect(x1, y1, x2 - x1, y2 - y1);
+                use_roi = true;
+            }
+        }
     }
 
-    if (fused_center.x >= 0 && fused_center.y >= 0 &&
-        fused_center.x < frame.cols && fused_center.y < frame.rows) {
+    const cv::Mat frame_roi = frame(roi_rect);
 
-        // 关键修复：先保存更新前的 last_cross 到 prev_cross
-        if (has_last_cross) {
-            prev_cross = last_cross;
-            has_prev_cross = true;
+    float proc_scale = 1.0f;
+    if (ENABLE_PROC_DOWNSAMPLE) {
+        const int roi_long_side = std::max(roi_rect.width, roi_rect.height);
+        const int roi_short_side = std::min(roi_rect.width, roi_rect.height);
+        if (roi_short_side >= PROC_DOWNSAMPLE_TRIGGER_SIDE) {
+            const float target_scale = static_cast<float>(PROC_TARGET_MAX_SIDE) /
+                                       static_cast<float>(std::max(1, roi_long_side));
+            proc_scale = std::clamp(target_scale, PROC_MIN_SCALE, 1.0f);
         }
+    }
 
-        if (!has_last_cross) {
-            last_cross = fused_center;
-            has_last_cross = true;
-        } else {
-            float move = cv::norm(fused_center - last_cross);
-            float alpha = (move < 2.0f) ? 0.18f : (move < 6.0f ? 0.30f : 0.55f);
-            last_cross = (1.0f - alpha) * last_cross + alpha * fused_center;
-        }
-
-        candidates.push_back(last_cross);
-        lost_count = 0;
-        roi_center = last_cross;
-        has_roi_center = true;
-
-    } else if (has_last_cross && lost_count < 5) {
-        candidates.push_back(last_cross);
-        lost_count++;
-        has_roi_center = false;
+    cv::Mat frame_proc;
+    if (proc_scale < 0.999f) {
+        cv::resize(frame_roi, frame_proc, cv::Size(), proc_scale, proc_scale, cv::INTER_AREA);
     } else {
-        has_roi_center = false;
+        frame_proc = frame_roi;
     }
 
-    // 可视化：评估中心点、对角线、图像中心、偏差连线
-    cv::Mat dbg = frame.clone();
+    // 将 ROI 内中间图补回全尺寸，避免调试窗口随 ROI 跳动。
+    auto restoreToRoiSize = [&](const cv::Mat& proc_img, int interp_method) {
+        if (proc_scale >= 0.999f) {
+            return proc_img;
+        }
+        cv::Mat roi_img;
+        cv::resize(proc_img, roi_img, roi_rect.size(), 0, 0, interp_method);
+        return roi_img;
+    };
 
-    // 候选点
-    for (auto &p : pts) cv::circle(dbg, p, 2, cv::Scalar(0, 255, 255), -1);
+    auto expandToFull = [&](const cv::Mat& roi_img) {
+        cv::Mat full_img(frame.size(), roi_img.type(), cv::Scalar::all(0));
+        roi_img.copyTo(full_img(roi_rect));
+        return full_img;
+    };
 
-    // 四角点
-    cv::circle(dbg, LU, 4, cv::Scalar(255, 0, 0), -1);
-    cv::circle(dbg, RU, 4, cv::Scalar(255, 0, 0), -1);
-    cv::circle(dbg, LD, 4, cv::Scalar(0, 255, 0), -1);
-    cv::circle(dbg, RD, 4, cv::Scalar(0, 255, 0), -1);
+    // 1) 预处理与颜色提取：BGR -> HSV，提取高亮青蓝色区域。
+    cv::Mat hsv;
+    cv::cvtColor(frame_proc, hsv, cv::COLOR_BGR2HSV);
 
-    // 对角线（用于评估中心）
-    cv::line(dbg, LU, RD, cv::Scalar(255, 255, 255), 1);
-    cv::line(dbg, RU, LD, cv::Scalar(255, 255, 255), 1);
+    cv::Mat hsv_mask_cyanblue;
+    cv::inRange(hsv, HSV_LOWER_CYAN_BLUE, HSV_UPPER_CYAN_BLUE, hsv_mask_cyanblue);
+    cv::Mat hsv_mask_magenta;
+    cv::inRange(hsv, HSV_LOWER_MAGENTA, HSV_UPPER_MAGENTA, hsv_mask_magenta);
 
-    // 新增：上下中点及中线
-    cv::circle(dbg, upper_mid, 4, cv::Scalar(255, 255, 0), -1);
-    cv::circle(dbg, lower_mid, 4, cv::Scalar(255, 255, 0), -1);
-    cv::line(dbg, upper_mid, lower_mid, cv::Scalar(255, 255, 0), 1);
+    cv::Mat hsv_mask;
+    cv::bitwise_or(hsv_mask_cyanblue, hsv_mask_magenta, hsv_mask);
 
-    // 图像中心点
-    cv::Point2f img_center(dbg.cols * 0.5f, dbg.rows * 0.5f);
-    cv::circle(dbg, img_center, 5, cv::Scalar(255, 0, 255), 2);
+    // 1.1) 白高光掩膜：先单独提取反光白点。
+    cv::Mat white_glare_mask = cv::Mat::zeros(frame_proc.size(), CV_8UC1);
+    if (ENABLE_WHITE_GLARE_SUPPRESS) {
+        cv::inRange(hsv, HSV_LOWER_WHITE_GLARE, HSV_UPPER_WHITE_GLARE, white_glare_mask);
+        if (WHITE_GLARE_DILATE_ITERS > 0) {
+            cv::Mat k = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
+            cv::dilate(white_glare_mask, white_glare_mask, k, cv::Point(-1, -1), WHITE_GLARE_DILATE_ITERS);
+        }
+    }
 
-    // 评估中心点 + 连线到图像中心
+    // 可选：B-R 差分增强蓝色显著性，用于抑制部分“高亮但非蓝色”噪声。
+    cv::Mat color_mask = hsv_mask.clone();
+    if (USE_BLUE_DIFF_ASSIST) {
+        std::vector<cv::Mat> bgr;
+        cv::split(frame_proc, bgr); // B,G,R
+
+        // 兼容蓝/紫/粉紫：
+        // - (B-R) 强：典型蓝
+        // - (R-B) 强：偏紫/粉紫
+        // - max(B,R)-G 强：蓝/紫的共同特征（G 相对更低），同时对白色高光不敏感
+        cv::Mat b_minus_r, r_minus_b, b_minus_g, r_minus_g;
+        cv::subtract(bgr[0], bgr[2], b_minus_r);
+        cv::subtract(bgr[2], bgr[0], r_minus_b);
+        cv::subtract(bgr[0], bgr[1], b_minus_g);
+        cv::subtract(bgr[2], bgr[1], r_minus_g);
+
+        cv::Mat mask_br, mask_rb, mask_bg, mask_rg;
+        cv::threshold(b_minus_r, mask_br, BLUE_DIFF_THRESH, 255, cv::THRESH_BINARY);
+        cv::threshold(r_minus_b, mask_rb, BLUE_DIFF_THRESH, 255, cv::THRESH_BINARY);
+        cv::threshold(b_minus_g, mask_bg, BRG_DIFF_THRESH, 255, cv::THRESH_BINARY);
+        cv::threshold(r_minus_g, mask_rg, BRG_DIFF_THRESH, 255, cv::THRESH_BINARY);
+
+        cv::Mat diff_mask;
+        cv::bitwise_or(mask_br, mask_rb, diff_mask);
+        cv::bitwise_or(diff_mask, mask_bg, diff_mask);
+        cv::bitwise_or(diff_mask, mask_rg, diff_mask);
+
+        cv::bitwise_and(hsv_mask, diff_mask, color_mask);
+    }
+
+    // 1.2) 从蓝色候选中减去白高光，抑制反光误检。
+    if (ENABLE_WHITE_GLARE_SUPPRESS) {
+        cv::Mat non_glare_mask;
+        cv::bitwise_not(white_glare_mask, non_glare_mask);
+        cv::bitwise_and(color_mask, non_glare_mask, color_mask);
+    }
+
+    // 2) 形态学处理：先闭运算补小孔，再轻微膨胀让破碎灯块连通。
+    cv::Mat morph_mask;
+    cv::Mat kernel_close = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3));
+    cv::Mat kernel_dilate = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3));
+    cv::morphologyEx(color_mask, morph_mask, cv::MORPH_CLOSE, kernel_close, cv::Point(-1, -1), 1);
+    cv::dilate(morph_mask, morph_mask, kernel_dilate, cv::Point(-1, -1), 1);
+
+    // 3) 轮廓提取。
+    std::vector<std::vector<cv::Point>> contours;
+    cv::findContours(morph_mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+
+    // 4) 轮廓初筛：面积过小/过大都过滤。
+    const double frame_area = static_cast<double>(frame.rows) * static_cast<double>(frame.cols);
+    const double proc_area_scale = static_cast<double>(proc_scale) * static_cast<double>(proc_scale);
+    const double min_contour_area = std::max(4.0, frame_area * MIN_CONTOUR_AREA_RATIO * proc_area_scale);
+    const double max_contour_area = std::max(
+        min_contour_area * 2.0,
+        frame_area * MAX_CONTOUR_AREA_RATIO * proc_area_scale
+    );
+
+    std::vector<cv::Rect> valid_rects;
+    std::vector<cv::Point2f> valid_centers;
+    valid_rects.reserve(contours.size());
+    valid_centers.reserve(contours.size());
+
+    for (const auto& contour : contours) {
+        const double area = cv::contourArea(contour);
+        if (area < min_contour_area || area > max_contour_area) {
+            continue;
+        }
+
+        cv::Rect local_rect = cv::boundingRect(contour);
+        if (local_rect.width <= 1 || local_rect.height <= 1) {
+            continue;
+        }
+
+        // 单灯块可有一定透视形变，因此这里不过度限制宽高比。
+        const float ar = static_cast<float>(local_rect.width) / static_cast<float>(local_rect.height);
+        if (ar < 0.15f || ar > 6.0f) {
+            continue;
+        }
+
+        // 用真实轮廓 mask 做颜色统计，避免仅凭 bbox 误判。
+        std::vector<cv::Point> shifted_contour;
+        shifted_contour.reserve(contour.size());
+        for (const auto& p : contour) {
+            shifted_contour.emplace_back(p.x - local_rect.x, p.y - local_rect.y);
+        }
+
+        cv::Mat contour_mask = cv::Mat::zeros(local_rect.height, local_rect.width, CV_8UC1);
+        std::vector<std::vector<cv::Point>> contour_wrapper = {shifted_contour};
+        cv::drawContours(contour_mask, contour_wrapper, 0, cv::Scalar(255), cv::FILLED);
+
+        const int contour_pixels = std::max(1, cv::countNonZero(contour_mask));
+
+        // 过滤“白高光重叠过多”的轮廓。
+        if (ENABLE_WHITE_GLARE_SUPPRESS) {
+            cv::Mat overlap_mask;
+            cv::bitwise_and(white_glare_mask(local_rect), contour_mask, overlap_mask);
+            const float white_overlap_ratio =
+                static_cast<float>(cv::countNonZero(overlap_mask)) / static_cast<float>(contour_pixels);
+            if (white_overlap_ratio > WHITE_OVERLAP_MAX_RATIO) {
+                continue;
+            }
+        }
+
+        // 轮廓颜色纯度：高光白点通常蓝红差小、饱和度低。
+        const cv::Scalar mean_bgr = cv::mean(frame_proc(local_rect), contour_mask);
+        const cv::Scalar mean_hsv = cv::mean(hsv(local_rect), contour_mask);
+        const float mean_sat = static_cast<float>(mean_hsv[1]);
+
+        const float mean_b = static_cast<float>(mean_bgr[0]);
+        const float mean_g = static_cast<float>(mean_bgr[1]);
+        const float mean_r = static_cast<float>(mean_bgr[2]);
+        const float mean_maxbr_minus_g = std::max(mean_b, mean_r) - mean_g;
+
+        // 白高光通常 sat 低、且 max(B,R) 与 G 差不大；蓝/紫灯通常 sat 高、且 G 相对更低。
+        if (mean_sat < MIN_MEAN_SATURATION || mean_maxbr_minus_g < MIN_MEAN_MAXBR_MINUS_G) {
+            continue;
+        }
+
+        const float inv_scale = 1.0f / std::max(1e-6f, proc_scale);
+        cv::Rect rect(
+            roi_rect.x + static_cast<int>(std::round(local_rect.x * inv_scale)),
+            roi_rect.y + static_cast<int>(std::round(local_rect.y * inv_scale)),
+            std::max(1, static_cast<int>(std::round(local_rect.width * inv_scale))),
+            std::max(1, static_cast<int>(std::round(local_rect.height * inv_scale)))
+        );
+        rect &= cv::Rect(0, 0, frame.cols, frame.rows);
+        if (rect.width <= 1 || rect.height <= 1) {
+            continue;
+        }
+
+        valid_rects.push_back(rect);
+        valid_centers.emplace_back(
+            rect.x + rect.width * 0.5f,
+            rect.y + rect.height * 0.5f
+        );
+    }
+
+    if (valid_centers.empty()) {
+        if (roi_track_valid) {
+            roi_track_center += roi_track_vel;
+            roi_track_vel *= ROI_VEL_DECAY_WHEN_LOST;
+            ++roi_lost_frames;
+            if (roi_lost_frames > ROI_LOST_KEEP_FRAMES) {
+                roi_track_valid = false;
+                roi_track_vel = cv::Point2f(0.0f, 0.0f);
+            }
+        }
+
+        if (debug_update_this_frame) {
+            cv::Mat debug_group_frame = frame.clone();
+            const cv::Scalar roi_color = use_roi ? cv::Scalar(0, 170, 255) : cv::Scalar(80, 80, 80);
+            cv::rectangle(debug_group_frame, roi_rect, roi_color, 2);
+            cv::putText(
+                debug_group_frame,
+                use_roi
+                    ? cv::format("ROI SEARCH (%dx%d) x%.2f", roi_rect.width, roi_rect.height, proc_scale)
+                    : cv::format("FULL SEARCH x%.2f", proc_scale),
+                cv::Point(roi_rect.x + 6, std::max(18, roi_rect.y + 18)),
+                cv::FONT_HERSHEY_SIMPLEX,
+                0.52,
+                roi_color,
+                1
+            );
+
+            cv::imshow("debug_module_1_hsv_mask", expandToFull(restoreToRoiSize(hsv_mask, cv::INTER_NEAREST)));
+            cv::imshow("debug_module_1b_white_glare", expandToFull(restoreToRoiSize(white_glare_mask, cv::INTER_NEAREST)));
+            cv::imshow("debug_module_1c_color_mask", expandToFull(restoreToRoiSize(color_mask, cv::INTER_NEAREST)));
+            cv::imshow("debug_module_2_morph_mask", expandToFull(restoreToRoiSize(morph_mask, cv::INTER_NEAREST)));
+            cv::imshow("debug_module_4_group_result", debug_group_frame);
+            cv::waitKey(1);
+        }
+        return candidates;
+    }
+
+    // 5) 聚类/编组（核心）：用“中心点距离阈值”构图，连通域视为同一模块组。
+    const float cluster_dist_thresh = CLUSTER_DIST_RATIO * static_cast<float>(std::min(frame.cols, frame.rows));
+    const size_t n = valid_centers.size();
+
+    std::vector<std::vector<int>> adjacency(n);
+    for (size_t i = 0; i < n; ++i) {
+        for (size_t j = i + 1; j < n; ++j) {
+            const float dist = cv::norm(valid_centers[i] - valid_centers[j]);
+            if (dist <= cluster_dist_thresh) {
+                adjacency[i].push_back(static_cast<int>(j));
+                adjacency[j].push_back(static_cast<int>(i));
+            }
+        }
+    }
+
+    std::vector<int> labels(n, -1);
+    int group_id = 0;
+    std::vector<std::vector<int>> groups;
+
+    for (size_t i = 0; i < n; ++i) {
+        if (labels[i] != -1) {
+            continue;
+        }
+
+        std::vector<int> stack;
+        stack.push_back(static_cast<int>(i));
+        labels[i] = group_id;
+
+        std::vector<int> group_indices;
+        while (!stack.empty()) {
+            const int u = stack.back();
+            stack.pop_back();
+            group_indices.push_back(u);
+
+            for (const int v : adjacency[u]) {
+                if (labels[v] == -1) {
+                    labels[v] = group_id;
+                    stack.push_back(v);
+                }
+            }
+        }
+
+        groups.push_back(group_indices);
+        ++group_id;
+    }
+
+    // 6) 组合特征校验：组内灯块数、整体包围框长宽比、密度。
+    cv::Mat debug_group_frame;
+    if (debug_update_this_frame) {
+        debug_group_frame = frame.clone();
+        const cv::Scalar roi_color = use_roi ? cv::Scalar(0, 170, 255) : cv::Scalar(80, 80, 80);
+        cv::rectangle(debug_group_frame, roi_rect, roi_color, 2);
+        cv::putText(
+            debug_group_frame,
+            use_roi
+                ? cv::format("ROI SEARCH (%dx%d) x%.2f", roi_rect.width, roi_rect.height, proc_scale)
+                : cv::format("FULL SEARCH x%.2f", proc_scale),
+            cv::Point(roi_rect.x + 6, std::max(18, roi_rect.y + 18)),
+            cv::FONT_HERSHEY_SIMPLEX,
+            0.52,
+            roi_color,
+            1
+        );
+    }
+
+    for (const auto& group : groups) {
+        std::vector<int> refined_group = group;
+
+        // 6.1) 按灯块面积中位数去掉极端离群块，防止单个大反光块并入。
+        if (refined_group.size() >= 3) {
+            std::vector<float> area_samples;
+            area_samples.reserve(refined_group.size());
+            for (const int idx : refined_group) {
+                area_samples.push_back(static_cast<float>(valid_rects[idx].area()));
+            }
+
+            std::nth_element(
+                area_samples.begin(),
+                area_samples.begin() + area_samples.size() / 2,
+                area_samples.end()
+            );
+            const float median_area = std::max(1.0f, area_samples[area_samples.size() / 2]);
+
+            std::vector<int> area_filtered;
+            area_filtered.reserve(refined_group.size());
+            for (const int idx : refined_group) {
+                const float a = static_cast<float>(valid_rects[idx].area());
+                if (a >= median_area * BLOCK_AREA_MIN_SCALE && a <= median_area * BLOCK_AREA_MAX_SCALE) {
+                    area_filtered.push_back(idx);
+                }
+            }
+
+            if (static_cast<int>(area_filtered.size()) >= MIN_LIGHTS_IN_GROUP) {
+                refined_group.swap(area_filtered);
+            }
+        }
+
+        // 6.2) 组中心距离离群点剔除，抑制远处反光点把框拉大。
+        cv::Point2f center(0.0f, 0.0f);
+        for (const int idx : refined_group) {
+            center += valid_centers[idx];
+        }
+        center *= 1.0f / std::max(1, static_cast<int>(refined_group.size()));
+
+        const float group_outlier_dist_thresh = std::max(12.0f, GROUP_OUTLIER_DIST_SCALE * cluster_dist_thresh);
+        std::vector<int> dist_filtered;
+        dist_filtered.reserve(refined_group.size());
+        for (const int idx : refined_group) {
+            if (cv::norm(valid_centers[idx] - center) <= group_outlier_dist_thresh) {
+                dist_filtered.push_back(idx);
+            }
+        }
+
+        if (static_cast<int>(dist_filtered.size()) >= MIN_LIGHTS_IN_GROUP) {
+            refined_group.swap(dist_filtered);
+        }
+
+        // 6.3) 邻域密度过滤：剔除“只有自己、没有近邻”的杂点。
+        if (refined_group.size() >= static_cast<size_t>(MIN_LIGHTS_IN_GROUP)) {
+            const float neighbor_dist_thresh = std::max(8.0f, GROUP_NEIGHBOR_DIST_SCALE * cluster_dist_thresh);
+            std::vector<int> dense_filtered;
+            dense_filtered.reserve(refined_group.size());
+
+            for (const int idx : refined_group) {
+                int near_cnt = 0;
+                for (const int jdx : refined_group) {
+                    if (idx == jdx) continue;
+                    if (cv::norm(valid_centers[idx] - valid_centers[jdx]) <= neighbor_dist_thresh) {
+                        ++near_cnt;
+                    }
+                }
+                if (near_cnt >= GROUP_MIN_NEIGHBORS) {
+                    dense_filtered.push_back(idx);
+                }
+            }
+
+            if (static_cast<int>(dense_filtered.size()) >= MIN_LIGHTS_IN_GROUP) {
+                refined_group.swap(dense_filtered);
+            }
+        }
+
+        // 6.4) 基于中位数 + MAD 的离群过滤，抑制少量远离主簇的杂点。
+        if (refined_group.size() >= static_cast<size_t>(MIN_LIGHTS_IN_GROUP)) {
+            std::vector<float> xs;
+            std::vector<float> ys;
+            xs.reserve(refined_group.size());
+            ys.reserve(refined_group.size());
+            for (const int idx : refined_group) {
+                xs.push_back(valid_centers[idx].x);
+                ys.push_back(valid_centers[idx].y);
+            }
+
+            const float med_x = medianValue(xs);
+            const float med_y = medianValue(ys);
+
+            std::vector<float> abs_dx;
+            std::vector<float> abs_dy;
+            abs_dx.reserve(refined_group.size());
+            abs_dy.reserve(refined_group.size());
+            for (const int idx : refined_group) {
+                abs_dx.push_back(std::fabs(valid_centers[idx].x - med_x));
+                abs_dy.push_back(std::fabs(valid_centers[idx].y - med_y));
+            }
+
+            const float mad_x = std::max(GROUP_MAD_MIN_PIX, 1.4826f * medianValue(abs_dx));
+            const float mad_y = std::max(GROUP_MAD_MIN_PIX, 1.4826f * medianValue(abs_dy));
+
+            std::vector<int> mad_filtered;
+            mad_filtered.reserve(refined_group.size());
+            for (const int idx : refined_group) {
+                const float dx = std::fabs(valid_centers[idx].x - med_x);
+                const float dy = std::fabs(valid_centers[idx].y - med_y);
+                if (dx <= GROUP_MAD_SCALE * mad_x && dy <= GROUP_MAD_SCALE * mad_y) {
+                    mad_filtered.push_back(idx);
+                }
+            }
+
+            if (static_cast<int>(mad_filtered.size()) >= MIN_LIGHTS_IN_GROUP) {
+                refined_group.swap(mad_filtered);
+            }
+        }
+
+        int light_count = static_cast<int>(refined_group.size());
+        if (light_count < MIN_LIGHTS_IN_GROUP || light_count > MAX_LIGHTS_IN_GROUP) {
+            continue;
+        }
+
+        // 用中位中心作为初始鲁棒中心。
+        std::vector<float> robust_xs;
+        std::vector<float> robust_ys;
+        robust_xs.reserve(refined_group.size());
+        robust_ys.reserve(refined_group.size());
+        for (const int idx : refined_group) {
+            robust_xs.push_back(valid_centers[idx].x);
+            robust_ys.push_back(valid_centers[idx].y);
+        }
+        const cv::Point2f robust_center(medianValue(robust_xs), medianValue(robust_ys));
+
+        // 6.5) 核心点筛选：按相对中位半径去掉残余远离点，防止框体被拉大。
+        std::vector<float> radial_samples;
+        radial_samples.reserve(refined_group.size());
+        for (const int idx : refined_group) {
+            radial_samples.push_back(cv::norm(valid_centers[idx] - robust_center));
+        }
+
+        const float median_radius = std::max(1.0f, medianValue(radial_samples));
+        const float core_radius_thresh = std::max(GROUP_CORE_RADIUS_MIN_PIX, GROUP_CORE_RADIUS_SCALE * median_radius);
+        std::vector<int> core_group;
+        core_group.reserve(refined_group.size());
+        for (const int idx : refined_group) {
+            if (cv::norm(valid_centers[idx] - robust_center) <= core_radius_thresh) {
+                core_group.push_back(idx);
+            }
+        }
+        if (static_cast<int>(core_group.size()) >= MIN_LIGHTS_IN_GROUP) {
+            refined_group.swap(core_group);
+        }
+
+        light_count = static_cast<int>(refined_group.size());
+        if (light_count < MIN_LIGHTS_IN_GROUP || light_count > MAX_LIGHTS_IN_GROUP) {
+            continue;
+        }
+
+        // 核心筛选后再计算鲁棒中心和紧凑度。
+        robust_xs.clear();
+        robust_ys.clear();
+        robust_xs.reserve(refined_group.size());
+        robust_ys.reserve(refined_group.size());
+        for (const int idx : refined_group) {
+            robust_xs.push_back(valid_centers[idx].x);
+            robust_ys.push_back(valid_centers[idx].y);
+        }
+        const cv::Point2f core_center(medianValue(robust_xs), medianValue(robust_ys));
+
+        // 6.6) 紧凑度校验：过滤掉被少量杂点拉长的松散组。
+        double mean_dist = 0.0;
+        float max_dist = 0.0f;
+        for (const int idx : refined_group) {
+            const float d = cv::norm(valid_centers[idx] - core_center);
+            mean_dist += d;
+            if (d > max_dist) max_dist = d;
+        }
+        mean_dist /= std::max(1, light_count);
+
+        const float mean_dist_max = GROUP_MAX_MEAN_DIST_SCALE * cluster_dist_thresh;
+        const float radius_max = GROUP_MAX_RADIUS_SCALE * cluster_dist_thresh;
+        if (mean_dist > mean_dist_max || max_dist > radius_max) {
+            continue;
+        }
+
+        cv::Rect group_rect = valid_rects[refined_group[0]];
+        double sum_rect_area = 0.0;
+        for (const int idx : refined_group) {
+            group_rect |= valid_rects[idx];
+            sum_rect_area += static_cast<double>(valid_rects[idx].area());
+        }
+
+        if (group_rect.width <= 0 || group_rect.height <= 0) {
+            continue;
+        }
+
+        const float group_ar = static_cast<float>(group_rect.width) / static_cast<float>(group_rect.height);
+        if (group_ar < GROUP_AR_MIN || group_ar > GROUP_AR_MAX) {
+            continue;
+        }
+
+        const double group_area = static_cast<double>(group_rect.area());
+        const float density = static_cast<float>(sum_rect_area / std::max(1.0, group_area));
+        if (density < GROUP_DENSITY_MIN || density > GROUP_DENSITY_MAX) {
+            continue;
+        }
+
+        // 6.7) 组尺寸上限，直接抑制“module_4黄框瞬间放大”。
+        const float group_area_ratio = static_cast<float>(group_area / std::max(1.0, frame_area));
+        if (group_area_ratio > GROUP_MAX_FRAME_AREA_RATIO) {
+            continue;
+        }
+        if (group_rect.width > frame.cols * GROUP_MAX_FRAME_W_RATIO ||
+            group_rect.height > frame.rows * GROUP_MAX_FRAME_H_RATIO) {
+            continue;
+        }
+
+        // 7) 计算中心点并输出。
+        // 接口为 vector<Point2f>，因此最终存储的是点值本身。
+        auto center_ptr = std::make_shared<cv::Point2f>(
+            group_rect.x + group_rect.width * 0.5f,
+            group_rect.y + group_rect.height * 0.5f
+        );
+        candidates.push_back(*center_ptr);
+
+        if (debug_update_this_frame) {
+            cv::rectangle(debug_group_frame, group_rect, cv::Scalar(0, 255, 255), 2);
+            cv::circle(debug_group_frame, *center_ptr, 4, cv::Scalar(0, 0, 255), -1);
+            cv::putText(
+                debug_group_frame,
+                cv::format("N:%d AR:%.2f D:%.2f A:%.3f", light_count, group_ar, density, group_area_ratio),
+                cv::Point(group_rect.x, std::max(0, group_rect.y - 8)),
+                cv::FONT_HERSHEY_SIMPLEX,
+                0.45,
+                cv::Scalar(0, 255, 255),
+                1
+            );
+        }
+    }
+
+    // 7.1) 用检测结果更新 ROI 中心与速度。
     if (!candidates.empty()) {
-        cv::Point2f eval_center = candidates[0];
-        cv::circle(dbg, eval_center, 6, cv::Scalar(0, 0, 255), -1);
-        cv::line(dbg, img_center, eval_center, cv::Scalar(0, 255, 255), 2);
+        cv::Point2f selected_center = candidates[0];
+        if (roi_track_valid) {
+            cv::Point2f predicted = roi_track_center + roi_track_vel * ROI_PREDICT_LEAD;
+            float best_dist = cv::norm(selected_center - predicted);
+            for (const auto& c : candidates) {
+                const float d = cv::norm(c - predicted);
+                if (d < best_dist) {
+                    best_dist = d;
+                    selected_center = c;
+                }
+            }
 
-        float dx = eval_center.x - img_center.x;
-        float dy = eval_center.y - img_center.y;
-        cv::putText(dbg, cv::format("dX=%.1f dY=%.1f", dx, dy), cv::Point(20, 30),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 255, 255), 2);
+            const cv::Point2f measured_vel = selected_center - roi_track_center;
+            roi_track_vel = (1.0f - ROI_VEL_SMOOTH_ALPHA) * roi_track_vel + ROI_VEL_SMOOTH_ALPHA * measured_vel;
+        } else {
+            roi_track_vel = cv::Point2f(0.0f, 0.0f);
+        }
+
+        roi_track_center = selected_center;
+        roi_track_valid = true;
+        roi_lost_frames = 0;
+    } else {
+        if (roi_track_valid) {
+            roi_track_center += roi_track_vel;
+            roi_track_vel *= ROI_VEL_DECAY_WHEN_LOST;
+            ++roi_lost_frames;
+            if (roi_lost_frames > ROI_LOST_KEEP_FRAMES) {
+                roi_track_valid = false;
+                roi_track_vel = cv::Point2f(0.0f, 0.0f);
+            }
+        }
     }
 
-    // 调试显示：增加 ROI 框
-    cv::rectangle(dbg, roi_rect, cv::Scalar(0, 128, 255), 2);
-    cv::putText(dbg, "ROI", cv::Point(roi_rect.x + 4, std::max(16, roi_rect.y - 4)),
-                cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 128, 255), 1);
-    cv::putText(dbg, cv::format("ROI:%dx%d V:%.1f", dyn_w, dyn_h, speed),
-                cv::Point(20, 55), cv::FONT_HERSHEY_SIMPLEX, 0.6,
-                cv::Scalar(0, 200, 255), 2);
+    // 8) 可选调试窗口：按步骤展示中间结果。
+    if (debug_update_this_frame) {
+        cv::Mat debug_contours = frame.clone();
+        for (const auto& rect : valid_rects) {
+            cv::rectangle(debug_contours, rect, cv::Scalar(255, 0, 255), 1);
+        }
 
-    cv::imshow("Detected Laser Module (Point Mode)", dbg);
-    cv::waitKey(1);
+        const cv::Scalar roi_color = use_roi ? cv::Scalar(0, 170, 255) : cv::Scalar(80, 80, 80);
+        cv::rectangle(debug_contours, roi_rect, roi_color, 2);
+        cv::putText(
+            debug_contours,
+            use_roi
+                ? cv::format("ROI SEARCH (%dx%d) x%.2f", roi_rect.width, roi_rect.height, proc_scale)
+                : cv::format("FULL SEARCH x%.2f", proc_scale),
+            cv::Point(roi_rect.x + 6, std::max(18, roi_rect.y + 18)),
+            cv::FONT_HERSHEY_SIMPLEX,
+            0.52,
+            roi_color,
+            1
+        );
+
+        cv::imshow("debug_module_1_hsv_mask", expandToFull(restoreToRoiSize(hsv_mask, cv::INTER_NEAREST)));
+        cv::imshow("debug_module_1b_white_glare", expandToFull(restoreToRoiSize(white_glare_mask, cv::INTER_NEAREST)));
+        cv::imshow("debug_module_1c_color_mask", expandToFull(restoreToRoiSize(color_mask, cv::INTER_NEAREST)));
+        cv::imshow("debug_module_2_morph_mask", expandToFull(restoreToRoiSize(morph_mask, cv::INTER_NEAREST)));
+        cv::imshow("debug_module_3_valid_contours", debug_contours);
+        cv::imshow("debug_module_4_group_result", debug_group_frame.empty() ? frame : debug_group_frame);
+        cv::waitKey(1);
+    }
 
     return candidates;
 }

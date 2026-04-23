@@ -1,0 +1,53 @@
+[0.007s] Invoking command in '/home/kevin/radar_ws/build/camera_stream': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kevin/radar_ws/build/camera_stream -- -j32 -l32
+[0.060s] [  2%] Built target camera_stream__rosidl_generator_type_description
+[0.062s] [  5%] Built target camera_stream__rs
+[0.074s] [  5%] Built target ament_cmake_python_copy_camera_stream
+[0.085s] [  7%] Built target camera_stream__cpp
+[0.086s] [ 20%] Built target camera_stream__rosidl_generator_c
+[0.108s] [ 27%] Built target camera_stream__rosidl_typesupport_fastrtps_c
+[0.109s] [ 35%] Built target camera_stream__rosidl_typesupport_fastrtps_cpp
+[0.110s] [ 42%] Built target camera_stream__rosidl_typesupport_introspection_cpp
+[0.110s] [ 50%] Built target camera_stream__rosidl_typesupport_introspection_c
+[0.111s] [ 57%] Built target camera_stream__rosidl_typesupport_c
+[0.112s] [ 65%] Built target camera_stream__rosidl_typesupport_cpp
+[0.128s] [ 65%] Built target camera_stream
+[0.134s] [ 70%] Built target camera_stream_receiver
+[0.137s] [ 72%] [32mBuilding CXX object CMakeFiles/camera_stream_publisher.dir/src/camera_stream_publisher.cpp.o[0m
+[0.145s] [ 75%] Built target camera_stream__py
+[0.163s] [ 80%] Built target camera_stream__rosidl_generator_py
+[0.183s] [ 85%] Built target camera_stream_s__rosidl_typesupport_fastrtps_c
+[0.183s] [ 90%] Built target camera_stream_s__rosidl_typesupport_introspection_c
+[0.184s] [ 95%] Built target camera_stream_s__rosidl_typesupport_c
+[0.221s] running egg_info
+[0.231s] writing camera_stream.egg-info/PKG-INFO
+[0.231s] writing dependency_links to camera_stream.egg-info/dependency_links.txt
+[0.231s] writing top-level names to camera_stream.egg-info/top_level.txt
+[0.262s] reading manifest file 'camera_stream.egg-info/SOURCES.txt'
+[0.262s] writing manifest file 'camera_stream.egg-info/SOURCES.txt'
+[0.282s] [ 95%] Built target ament_cmake_python_build_camera_stream_egg
+[1.802s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:[m[K In constructor ‘[01m[KCameraStreamPublisher::[01;32m[KCameraStreamPublisher[m[K(std::string, int, camera_mode)[m[K’:
+[1.802s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:45:13:[m[K [01;35m[Kwarning: [m[K‘[01m[KCameraStreamPublisher::camera_select_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[1.803s]    45 |         int [01;35m[Kcamera_select_[m[K;
+[1.803s]       |             [01;35m[K^~~~~~~~~~~~~~[m[K
+[1.803s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:44:13:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint CameraStreamPublisher::camera_mode_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[1.803s]    44 |         int [01;35m[Kcamera_mode_[m[K;
+[1.803s]       |             [01;35m[K^~~~~~~~~~~~[m[K
+[1.803s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:14:9:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[1.803s]    14 |         [01;35m[KCameraStreamPublisher[m[K(std::string name, int camera_select, enum camera_mode mode) : Node(name), camera_select_(camera_select), camera_mode_(mode)
+[1.803s]       |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[1.819s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:[m[K In member function ‘[01m[Kvoid CameraStreamPublisher::[01;32m[Ktimer_callback[m[K()[m[K’:
+[1.820s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:137:9:[m[K [01;31m[Kerror: [m[K‘[01m[KRCLCPP_INFO_[m[K’ was not declared in this scope; did you mean ‘[01m[KRCLCPP_INFO[m[K’?
+[1.820s]   137 |         [01;31m[KRCLCPP_INFO_[m[K(this->get_logger(),"Publishing message.");
+[1.820s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[1.820s]       |         [32m[KRCLCPP_INFO[m[K
+[1.822s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:[m[K In member function ‘[01m[Kvoid CameraStreamPublisher::[01;32m[KinitCamera[m[K()[m[K’:
+[1.822s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:207:188:[m[K [01;35m[Kwarning: [m[KISO C++ forbids compound-literals [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+[1.822s]   207 |                                 success = init_HKCamera(&hkcamera_, CAMERA_CAR_DEVID, (struct HIKCameraParams){CAR_CAMERA_HIK_EXPOSURE_TIME, CAR_CAMERA_HIK_GAIN, CAR_CAMERA_HIK_FRAME_RATE[01;35m[K}[m[K);
+[1.822s]       |                                                                                                                                                                                            [01;35m[K^[m[K
+[1.823s] [01m[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:209:196:[m[K [01;35m[Kwarning: [m[KISO C++ forbids compound-literals [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+[1.823s]   209 |                                 success = init_HKCamera(&hkcamera_, CAMERA_DRONE_DEVID, (struct HIKCameraParams){DRONE_CAMERA_HIK_EXPOSURE_TIME, DRONE_CAMERA_HIK_GAIN, DRONE_CAMERA_HIK_FRAME_RATE[01;35m[K}[m[K);
+[1.823s]       |                                                                                                                                                                                                    [01;35m[K^[m[K
+[2.801s] gmake[2]: *** [CMakeFiles/camera_stream_publisher.dir/build.make:76：CMakeFiles/camera_stream_publisher.dir/src/camera_stream_publisher.cpp.o] 错误 1
+[2.801s] gmake[1]: *** [CMakeFiles/Makefile2:646：CMakeFiles/camera_stream_publisher.dir/all] 错误 2
+[2.801s] gmake: *** [Makefile:146：all] 错误 2
+[2.803s] Invoked command in '/home/kevin/radar_ws/build/camera_stream' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kevin/radar_ws/build/camera_stream -- -j32 -l32

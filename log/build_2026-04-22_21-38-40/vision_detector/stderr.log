@@ -1,0 +1,4 @@
+[01m[K/home/kevin/radar_ws/src/vision_detector/src/target_detector.cpp:[m[K In function ‘[01m[Kstd::vector<cv::Point_<float> >[01;32m[K detectLaserModule[m[K(const cv::Mat&)[m[K’:
+[01m[K/home/kevin/radar_ws/src/vision_detector/src/target_detector.cpp:276:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kmax_area[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  276 |     int [01;35m[Kmax_area[m[K = (motion > 2.0f) ? 320 : 220;  // 原 260/180
+      |         [01;35m[K^~~~~~~~[m[K

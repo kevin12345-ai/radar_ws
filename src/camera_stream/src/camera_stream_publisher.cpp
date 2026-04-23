@@ -134,7 +134,8 @@ void CameraStreamPublisher::timer_callback(void){
 	message.shm_size = sizeof(unsigned char)*message.width*message.height*3;
 	// 复制数据到共享内存
 	memcpy(shm_ptr, frame.data, sizeof(unsigned char)*message.width*message.height*3);
-	RCLCPP_INFO(this->get_logger(),"Publishing message size:%lu %lu %lu EN: %d",sizeof(cv::Mat),sizeof(cv::Mat::data),sizeof(unsigned char)*message.width*message.height*3, message.enable);
+	RCLCPP_INFO(this->get_logger(),"Publishing message.");
+	//RCLCPP_INFO_(this->get_logger(),"Publishing message size:%lu %lu %lu EN: %d",sizeof(cv::Mat),sizeof(cv::Mat::data),sizeof(unsigned char)*message.width*message.height*3, message.enable);
 	command_publisher_->publish(message);
 	shmdt(shm_ptr);
 }

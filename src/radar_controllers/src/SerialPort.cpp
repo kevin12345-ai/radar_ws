@@ -194,10 +194,10 @@ ssize_t SerialPort::write(const void* data, size_t len) {
         return -1;
     }
     ssize_t ret = ::write(fd_, data, len);
-    for(int i=0;i<len;i++){
-        printf("%02X ", ((uint8_t*)data)[i]);
-    }
-    printf("\n");
+    // for(int i=0;i<len;i++){
+    //     printf("%02X ", ((uint8_t*)data)[i]);
+    // }
+    // printf("\n");
 
     if (ret < 0) {
         setError("write() failed: " + std::string(strerror(errno)));

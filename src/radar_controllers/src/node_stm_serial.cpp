@@ -55,10 +55,13 @@ private:
     int receive_from_stm(to_pc_packet_t *pkt);
     void test(void);
     int initSerialPort(void);
+    void handleSerialWriteFailure(void);
     std::unique_ptr<SerialPort> serial_stm_;
     rclcpp::Subscription<vision_detector::msg::DroneDiff>::SharedPtr drone_diff_subscribe_;
     rclcpp::Publisher<vision_detector::msg::GimbalInfo>::SharedPtr gimbal_info_publish_;
     void drone_diff_callback(const vision_detector::msg::DroneDiff::SharedPtr msg);
+    int consecutive_write_failures_ = 0;
+    static constexpr int kWriteFailureRetryLimit = 5;
     // }
 };
 
@@ -73,8 +76,8 @@ int main(int argc, char **argv){
 }
 
 void STMSerial::main_loop(void){
-    RCLCPP_INFO(this->get_logger(), "发送数据包：state=%d, id=%d, armors_num=%d, target_yaw=%.2f, target_pitch=%.2f, target_v_yaw=%.2f, target_v_pitch=%.2f, fire_advice=%d, pc_timestamp_us=%u",
-                pkt.state, pkt.id, pkt.armors_num, pkt.target_yaw, pkt.target_pitch, pkt.target_v_yaw, pkt.target_v_pitch, pkt.fire_advice, pkt.pc_timestamp_us);
+    //RCLCPP_INFO(this->get_logger(), "发送数据包：state=%d, id=%d, armors_num=%d, target_yaw=%.2f, target_pitch=%.2f, target_v_yaw=%.2f, target_v_pitch=%.2f, fire_advice=%d, pc_timestamp_us=%u",
+    //           pkt.state, pkt.id, pkt.armors_num, pkt.target_yaw, pkt.target_pitch, pkt.target_v_yaw, pkt.target_v_pitch, pkt.fire_advice, pkt.pc_timestamp_us);
     if(send_to_stm(&pkt) < 0){
         RCLCPP_ERROR(this->get_logger(), "Failed to send test packet to STM");
     }else{
@@ -84,19 +87,19 @@ void STMSerial::main_loop(void){
     to_pc_packet_t recv_pkt;
     if (receive_from_stm(&recv_pkt) == 0) {
         printf("接收到数据包:");
-        printf("Header: 0x%02X\n", recv_pkt.header);
-        printf("Detect Color: %d  ", recv_pkt.detect_color);
-        printf("Is Play: %d  ", recv_pkt.is_play);
-        printf("Change Target: %d  ", recv_pkt.change_target);
-        printf("Roll: %.2f  ", recv_pkt.roll);
-        printf("Pitch: %.2f  ", recv_pkt.pitch);
-        printf("Yaw: %.2f\n", recv_pkt.yaw);
-        printf("Aim X: %.2f  ", recv_pkt.aim_x);
-        printf("Aim Y: %.2f  ", recv_pkt.aim_y);
-        printf("Aim Z: %.2f  ", recv_pkt.aim_z);
-        printf("Game Time: %u seconds  ", recv_pkt.game_time);
-        printf("Timestamp: %u ms  ", recv_pkt.timestamp);
-        printf("Last PC Timestamp: %u ms\n", recv_pkt.last_pc_timestamp_us);
+        // printf("Header: 0x%02X\n", recv_pkt.header);
+        // printf("Detect Color: %d  ", recv_pkt.detect_color);
+        // printf("Is Play: %d  ", recv_pkt.is_play);
+        // printf("Change Target: %d  ", recv_pkt.change_target);
+        // printf("Roll: %.2f  ", recv_pkt.roll);
+        // printf("Pitch: %.2f  ", recv_pkt.pitch);
+        // printf("Yaw: %.2f\n", recv_pkt.yaw);
+        // printf("Aim X: %.2f  ", recv_pkt.aim_x);
+        // printf("Aim Y: %.2f  ", recv_pkt.aim_y);
+        // printf("Aim Z: %.2f  ", recv_pkt.aim_z);
+        // printf("Game Time: %u seconds  ", recv_pkt.game_time);
+        // printf("Timestamp: %u ms  ", recv_pkt.timestamp);
+        // printf("Last PC Timestamp: %u ms\n", recv_pkt.last_pc_timestamp_us);
         vision_detector::msg::GimbalInfo gimbal_info_msg;
         gimbal_info_msg.current_yaw = recv_pkt.yaw;
         gimbal_info_msg.current_pitch = recv_pkt.pitch;
@@ -114,8 +117,11 @@ int STMSerial::send_to_stm(const to_stm_packet_t* pkt){
         ssize_t bytes_written = serial_stm_->write(out_buf, sizeof(out_buf));
         if (bytes_written < 0) {
             RCLCPP_ERROR(this->get_logger(), "Failed to write to STM serial: %s", serial_stm_->lastError().c_str());
+            handleSerialWriteFailure();
+            return -1;
         } else {
-            RCLCPP_INFO(this->get_logger(), "Sent %zd bytes to STM", bytes_written);
+            consecutive_write_failures_ = 0;
+            //RCLCPP_INFO(this->get_logger(), "Sent %zd bytes to STM", bytes_written);
         }
         serial_stm_->flushInput(); // 确保数据发送出去，清空输入缓冲区
     } else {
@@ -127,6 +133,25 @@ int STMSerial::send_to_stm(const to_stm_packet_t* pkt){
         return -1;
     }
     return 0;
+}
+
+void STMSerial::handleSerialWriteFailure(void){
+    ++consecutive_write_failures_;
+    if (consecutive_write_failures_ < kWriteFailureRetryLimit) {
+        return;
+    }
+
+    RCLCPP_ERROR(this->get_logger(), "STM serial write failed %d times, closing and reinitializing port", consecutive_write_failures_);
+    consecutive_write_failures_ = 0;
+    if (serial_stm_) {
+        serial_stm_->close();
+        serial_stm_.reset();
+    }
+
+    while (initSerialPort() != 0) {
+        RCLCPP_ERROR(this->get_logger(), "Failed to reinitialize STM serial port after write failures, retrying...");
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    }
 }
 
 int STMSerial::receive_from_stm(to_pc_packet_t *pkt)

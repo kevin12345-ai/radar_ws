@@ -1,0 +1,4 @@
+Invoking command in '/home/kevin/radar_ws/build/camera_stream': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kevin/radar_ws/build/camera_stream -- -j32 -l32
+Invoked command in '/home/kevin/radar_ws/build/camera_stream' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kevin/radar_ws/build/camera_stream -- -j32 -l32
+Invoking command in '/home/kevin/radar_ws/build/camera_stream': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kevin/radar_ws/build/camera_stream
+Invoked command in '/home/kevin/radar_ws/build/camera_stream' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kevin/radar_ws/build/camera_stream

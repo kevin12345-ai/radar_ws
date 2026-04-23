@@ -1,0 +1,8 @@
+[01m[K/home/kevin/radar_ws/src/pnp_calibration/src/ui.cpp:[m[K In function ‘[01m[Kvoid[01;32m[K cameraMouseCallback[m[K(int, int, int, int, void*)[m[K’:
+[01m[K/home/kevin/radar_ws/src/pnp_calibration/src/ui.cpp:6:62:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kflags[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    6 | static void cameraMouseCallback(int event, int x, int y, [01;35m[Kint flags[m[K, void* userdata) {
+      |                                                          [01;35m[K~~~~^~~~~[m[K
+[01m[K/home/kevin/radar_ws/src/pnp_calibration/src/ui.cpp:[m[K In function ‘[01m[Kvoid[01;32m[K mapMouseCallback[m[K(int, int, int, int, void*)[m[K’:
+[01m[K/home/kevin/radar_ws/src/pnp_calibration/src/ui.cpp:16:59:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kflags[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   16 | static void mapMouseCallback(int event, int x, int y, [01;35m[Kint flags[m[K, void* userdata) {
+      |                                                       [01;35m[K~~~~^~~~~[m[K

@@ -1,0 +1,171 @@
+[0.007s] Invoking command in '/home/kevin/radar_ws/build/camera_stream': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kevin/radar_ws/build/camera_stream -- -j32 -l32
+[0.048s] [  2%] Built target camera_stream__rs
+[0.049s] [  5%] Built target camera_stream__rosidl_generator_type_description
+[0.057s] [  5%] Built target ament_cmake_python_copy_camera_stream
+[0.065s] [  7%] Built target camera_stream__cpp
+[0.067s] [ 20%] Built target camera_stream__rosidl_generator_c
+[0.085s] [ 55%] Built target camera_stream__rosidl_typesupport_introspection_cpp
+[0.085s] [ 55%] Built target camera_stream__rosidl_typesupport_c
+[0.085s] [ 55%] Built target camera_stream__rosidl_typesupport_fastrtps_c
+[0.085s] [ 57%] Built target camera_stream__rosidl_typesupport_introspection_c
+[0.085s] [ 57%] Built target camera_stream__rosidl_typesupport_fastrtps_cpp
+[0.088s] [ 65%] Built target camera_stream__rosidl_typesupport_cpp
+[0.106s] [ 65%] Built target camera_stream
+[0.108s] [ 72%] Built target camera_stream_publisher
+[0.108s] [ 77%] Built target camera_stream_receiver
+[0.123s] [ 80%] Built target camera_stream__py
+[0.144s] [ 85%] Built target camera_stream__rosidl_generator_py
+[0.167s] [ 97%] Built target camera_stream_s__rosidl_typesupport_fastrtps_c
+[0.167s] [ 97%] Built target camera_stream_s__rosidl_typesupport_introspection_c
+[0.167s] [100%] Built target camera_stream_s__rosidl_typesupport_c
+[0.195s] running egg_info
+[0.207s] writing camera_stream.egg-info/PKG-INFO
+[0.207s] writing dependency_links to camera_stream.egg-info/dependency_links.txt
+[0.207s] writing top-level names to camera_stream.egg-info/top_level.txt
+[0.240s] reading manifest file 'camera_stream.egg-info/SOURCES.txt'
+[0.241s] writing manifest file 'camera_stream.egg-info/SOURCES.txt'
+[0.263s] [100%] Built target ament_cmake_python_build_camera_stream_egg
+[0.272s] Invoked command in '/home/kevin/radar_ws/build/camera_stream' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kevin/radar_ws/build/camera_stream -- -j32 -l32
+[0.281s] Invoking command in '/home/kevin/radar_ws/build/camera_stream': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kevin/radar_ws/build/camera_stream
+[0.288s] -- Install configuration: ""
+[0.288s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/rosidl_interfaces/camera_stream
+[0.288s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/msg/ShareImage.json
+[0.288s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream
+[0.288s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg
+[0.288s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_generator_c__visibility_control.h
+[0.288s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/share_image.h
+[0.288s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.h
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__functions.c
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__description.c
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__functions.h
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.c
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__struct.h
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/library_path.sh
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/library_path.dsv
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_generator_c.so
+[0.289s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__rosidl_typesupport_fastrtps_c.h
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_fastrtps_c.so
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_generator_cpp__visibility_control.hpp
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/share_image.hpp
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__builder.hpp
+[0.290s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__struct.hpp
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.hpp
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__traits.hpp
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__rosidl_typesupport_fastrtps_cpp.hpp
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/dds_fastrtps
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_fastrtps_cpp.so
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__rosidl_typesupport_introspection_c.h
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.c
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_introspection_c.so
+[0.291s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_c.so
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__rosidl_typesupport_introspection_cpp.hpp
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/camera_stream/camera_stream/msg/detail/share_image__type_support.cpp
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_introspection_cpp.so
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_typesupport_cpp.so
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/pythonpath.sh
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/pythonpath.dsv
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info
+[0.292s] -- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info/SOURCES.txt
+[0.292s] -- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info/top_level.txt
+[0.292s] -- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info/PKG-INFO
+[0.292s] -- Installing: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream-0.0.0-py3.12.egg-info/dependency_links.txt
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_c.so
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/_camera_stream_s.ep.rosidl_typesupport_c.c
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/_camera_stream_s.ep.rosidl_typesupport_introspection_c.c
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/__init__.py
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/_camera_stream_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.292s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_fastrtps_c.so
+[0.293s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg
+[0.293s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg/_share_image.py
+[0.293s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg/__init__.py
+[0.293s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg/_share_image_s.c
+[0.293s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_introspection_c.so
+[0.315s] Listing '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream'...
+[0.315s] Listing '/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/msg'...
+[0.319s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_fastrtps_c.so
+[0.319s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_introspection_c.so
+[0.319s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages/camera_stream/camera_stream_s__rosidl_typesupport_c.so
+[0.320s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/libcamera_stream__rosidl_generator_py.so
+[0.320s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/rust_packages/camera_stream
+[0.320s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust
+[0.320s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/Cargo.toml
+[0.320s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src
+[0.320s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src/msg.rs
+[0.320s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src/lib.rs
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src/msg
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/src/msg/rmw.rs
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/rust/build.rs
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/msg/ShareImage.idl
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/msg/ShareImage.msg
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/camera_stream/camera_stream_publisher
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/camera_stream/camera_stream_receiver
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include/
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include//MvCameraControl.h
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include//CameraParams.h
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include//MvISPErrorDefine.h
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include//MvErrorDefine.h
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include//HKCamera.h
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include//MvObsoleteInterfaces.h
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include//ObsoleteCamParams.h
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/include//PixelType.h
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/lib/camera_stream/libMvCameraControl.so
+[0.321s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/package_run_dependencies/camera_stream
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/parent_prefix_path/camera_stream
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/ament_prefix_path.sh
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/ament_prefix_path.dsv
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/path.sh
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/environment/path.dsv
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/local_setup.bash
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/local_setup.sh
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/local_setup.zsh
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/local_setup.dsv
+[0.322s] -- Installing: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/package.dsv
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/ament_index/resource_index/packages/camera_stream
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_cExport.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_cExport-noconfig.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_typesupport_fastrtps_cExport.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_cppExport.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_introspection_cExport.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_cExport.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_cExport-noconfig.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_introspection_cppExport.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_cppExport.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_stream__rosidl_typesupport_cppExport-noconfig.cmake
+[0.322s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_pyExport.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/export_camera_stream__rosidl_generator_pyExport-noconfig.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/rosidl_cmake-extras.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/ament_cmake_export_libraries-extras.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/ament_cmake_export_targets-extras.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_streamConfig.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/cmake/camera_streamConfig-version.cmake
+[0.323s] -- Up-to-date: /home/kevin/radar_ws/install/camera_stream/share/camera_stream/package.xml
+[0.324s] Invoked command in '/home/kevin/radar_ws/build/camera_stream' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kevin/radar_ws/build/camera_stream

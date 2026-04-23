@@ -1,0 +1,12 @@
+[01m[K/home/kevin/radar_ws/src/radar_controllers/src/node_stm_serial.cpp:[m[K In constructor ‘[01m[KSTMSerial::[01;32m[KSTMSerial[m[K(std::string)[m[K’:
+[01m[K/home/kevin/radar_ws/src/radar_controllers/src/node_stm_serial.cpp:46:35:[m[K [01;31m[Kerror: [m[K‘[01m[Km[m[K’ is not a member of ‘[01m[KSTMSerial[m[K’
+   46 |          std::bind(&STMSerial::[01;31m[Km[m[K%ain_loop, this));
+      |                                [01;31m[K^[m[K
+
+[01m[K/home/kevin/radar_ws/src/radar_controllers/src/node_stm_serial.cpp:46:37:[m[K [01;31m[Kerror: [m[K‘[01m[Kain_loop[m[K’ was not declared in this scope; did you mean ‘[01m[Kmain_loop[m[K’?
+   46 |        std::bind(&STMSerial::m%[01;31m[Kain_loop[m[K, this));
+      |                                [01;31m[K^~~~~~~~[m[K
+      |                                [32m[Kmain_loop[m[K
+gmake[2]: *** [CMakeFiles/node_stm_serial.dir/build.make:76：CMakeFiles/node_stm_serial.dir/src/node_stm_serial.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:137：CMakeFiles/node_stm_serial.dir/all] 错误 2
+gmake: *** [Makefile:146：all] 错误 2

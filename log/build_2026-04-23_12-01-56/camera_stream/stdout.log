@@ -1,0 +1,26 @@
+[  2%] Built target camera_stream__rs
+[  5%] Built target camera_stream__rosidl_generator_type_description
+[  5%] Built target ament_cmake_python_copy_camera_stream
+[  7%] Built target camera_stream__cpp
+[ 20%] Built target camera_stream__rosidl_generator_c
+[ 27%] Built target camera_stream__rosidl_typesupport_fastrtps_cpp
+[ 40%] Built target camera_stream__rosidl_typesupport_introspection_c
+[ 42%] Built target camera_stream__rosidl_typesupport_introspection_cpp
+[ 50%] Built target camera_stream__rosidl_typesupport_fastrtps_c
+[ 57%] Built target camera_stream__rosidl_typesupport_c
+[ 65%] Built target camera_stream__rosidl_typesupport_cpp
+[ 65%] Built target camera_stream
+[ 70%] Built target camera_stream_receiver
+[ 72%] [32mBuilding CXX object CMakeFiles/camera_stream_publisher.dir/src/camera_stream_publisher.cpp.o[0m
+[ 75%] Built target camera_stream__py
+[ 80%] Built target camera_stream__rosidl_generator_py
+[ 85%] Built target camera_stream_s__rosidl_typesupport_fastrtps_c
+[ 95%] Built target camera_stream_s__rosidl_typesupport_introspection_c
+[ 95%] Built target camera_stream_s__rosidl_typesupport_c
+running egg_info
+writing camera_stream.egg-info/PKG-INFO
+writing dependency_links to camera_stream.egg-info/dependency_links.txt
+writing top-level names to camera_stream.egg-info/top_level.txt
+reading manifest file 'camera_stream.egg-info/SOURCES.txt'
+writing manifest file 'camera_stream.egg-info/SOURCES.txt'
+[ 95%] Built target ament_cmake_python_build_camera_stream_egg

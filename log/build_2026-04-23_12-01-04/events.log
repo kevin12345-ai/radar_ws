@@ -1,0 +1,94 @@
+[0.000000] (-) TimerEvent: {}
+[0.000167] (camera_stream) JobQueued: {'identifier': 'camera_stream', 'dependencies': OrderedDict()}
+[0.000446] (pnp_calibration) JobQueued: {'identifier': 'pnp_calibration', 'dependencies': OrderedDict({'camera_stream': '/home/kevin/radar_ws/install/camera_stream'})}
+[0.000483] (vision_detector) JobQueued: {'identifier': 'vision_detector', 'dependencies': OrderedDict({'camera_stream': '/home/kevin/radar_ws/install/camera_stream'})}
+[0.000655] (radar_controllers) JobQueued: {'identifier': 'radar_controllers', 'dependencies': OrderedDict({'camera_stream': '/home/kevin/radar_ws/install/camera_stream', 'vision_detector': '/home/kevin/radar_ws/install/vision_detector'})}
+[0.000715] (camera_stream) JobStarted: {'identifier': 'camera_stream'}
+[0.004922] (camera_stream) JobProgress: {'identifier': 'camera_stream', 'progress': 'cmake'}
+[0.005655] (camera_stream) JobProgress: {'identifier': 'camera_stream', 'progress': 'build'}
+[0.005687] (camera_stream) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kevin/radar_ws/build/camera_stream', '--', '-j32', '-l32'], 'cwd': '/home/kevin/radar_ws/build/camera_stream', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'HTTPS_PROXY': 'http://127.0.0.1:7897/', 'no_proxy': 'localhost,127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,::1', 'USER': 'kevin', 'all_proxy': 'socks://127.0.0.1:7897/', 'XDG_SESSION_TYPE': 'wayland', 'ALLUSERSPROFILE': '/opt/MVS/MVFG', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/kevin/radar_ws/install/vision_detector/lib:/home/kevin/radar_ws/install/camera_stream/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32:', 'HOME': '/home/kevin', 'CHROME_DESKTOP': 'code.desktop', 'OLDPWD': '/home/kevin', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'NO_PROXY': 'localhost,127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,::1', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'SYSTEMD_EXEC_PID': '3042', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'https_proxy': 'http://127.0.0.1:7897/', 'COLCON_PREFIX_PATH': '/home/kevin/radar_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'kevin', 'ALL_PROXY': 'socks://127.0.0.1:7897/', 'http_proxy': 'http://127.0.0.1:7897/', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kevin', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'MVCAM_SDK_PATH': '/opt/MVS', 'PATH': '/home/kevin/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kevin/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/kevin-Legion-Y7000P-IRX10:@/tmp/.ICE-unix/2709,unix/kevin-Legion-Y7000P-IRX10:/tmp/.ICE-unix/2709', 'MVCAM_GENICAM_CLPROTOCOL': '/opt/MVS/lib/CLProtocol', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/71eae9ad_1027_4023_b3f1_e93b35391e2b', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.06MDO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-be546a89f5.sock', 'GNOME_TERMINAL_SERVICE': ':1.108', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/kevin/radar_ws/install/radar_controllers:/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/pnp_calibration:/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kevin/radar_ws/build/camera_stream', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:7897/', 'MVCAM_SDK_VERSION': '4.7.0', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/kevin/radar_ws/install/radar_controllers:/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/pnp_calibration:/home/kevin/radar_ws/install/camera_stream:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy', 'MVCAM_COMMON_RUNENV': '/opt/MVS/lib'}), 'shell': False}
+[0.049760] (camera_stream) StdoutLine: {'line': b'[  2%] Built target camera_stream__rs\n'}
+[0.051680] (camera_stream) StdoutLine: {'line': b'[  5%] Built target camera_stream__rosidl_generator_type_description\n'}
+[0.059568] (camera_stream) StdoutLine: {'line': b'[  5%] Built target ament_cmake_python_copy_camera_stream\n'}
+[0.071403] (camera_stream) StdoutLine: {'line': b'[  7%] Built target camera_stream__cpp\n'}
+[0.073305] (camera_stream) StdoutLine: {'line': b'[ 20%] Built target camera_stream__rosidl_generator_c\n'}
+[0.091857] (camera_stream) StdoutLine: {'line': b'[ 27%] Built target camera_stream__rosidl_typesupport_fastrtps_c\n'}
+[0.093452] (camera_stream) StdoutLine: {'line': b'[ 35%] Built target camera_stream__rosidl_typesupport_introspection_c\n'}
+[0.094218] (camera_stream) StdoutLine: {'line': b'[ 42%] Built target camera_stream__rosidl_typesupport_c\n'}
+[0.094832] (camera_stream) StdoutLine: {'line': b'[ 57%] Built target camera_stream__rosidl_typesupport_fastrtps_cpp\n'}
+[0.094931] (camera_stream) StdoutLine: {'line': b'[ 57%] Built target camera_stream__rosidl_typesupport_introspection_cpp\n'}
+[0.095008] (camera_stream) StdoutLine: {'line': b'[ 65%] Built target camera_stream__rosidl_typesupport_cpp\n'}
+[0.099601] (-) TimerEvent: {}
+[0.112044] (camera_stream) StdoutLine: {'line': b'[ 65%] Built target camera_stream\n'}
+[0.115176] (camera_stream) StdoutLine: {'line': b'[ 70%] Built target camera_stream_receiver\n'}
+[0.116518] (camera_stream) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/camera_stream_publisher.dir/src/camera_stream_publisher.cpp.o\x1b[0m\n'}
+[0.131081] (camera_stream) StdoutLine: {'line': b'[ 75%] Built target camera_stream__py\n'}
+[0.151663] (camera_stream) StdoutLine: {'line': b'[ 80%] Built target camera_stream__rosidl_generator_py\n'}
+[0.172300] (camera_stream) StdoutLine: {'line': b'[ 85%] Built target camera_stream_s__rosidl_typesupport_fastrtps_c\n'}
+[0.172636] (camera_stream) StdoutLine: {'line': b'[ 95%] Built target camera_stream_s__rosidl_typesupport_introspection_c\n'}
+[0.172730] (camera_stream) StdoutLine: {'line': b'[ 95%] Built target camera_stream_s__rosidl_typesupport_c\n'}
+[0.199775] (-) TimerEvent: {}
+[0.205298] (camera_stream) StdoutLine: {'line': b'running egg_info\n'}
+[0.215980] (camera_stream) StdoutLine: {'line': b'writing camera_stream.egg-info/PKG-INFO\n'}
+[0.216170] (camera_stream) StdoutLine: {'line': b'writing dependency_links to camera_stream.egg-info/dependency_links.txt\n'}
+[0.216376] (camera_stream) StdoutLine: {'line': b'writing top-level names to camera_stream.egg-info/top_level.txt\n'}
+[0.246157] (camera_stream) StdoutLine: {'line': b"reading manifest file 'camera_stream.egg-info/SOURCES.txt'\n"}
+[0.246628] (camera_stream) StdoutLine: {'line': b"writing manifest file 'camera_stream.egg-info/SOURCES.txt'\n"}
+[0.266935] (camera_stream) StdoutLine: {'line': b'[ 95%] Built target ament_cmake_python_build_camera_stream_egg\n'}
+[0.299905] (-) TimerEvent: {}
+[0.400190] (-) TimerEvent: {}
+[0.500468] (-) TimerEvent: {}
+[0.600771] (-) TimerEvent: {}
+[0.701092] (-) TimerEvent: {}
+[0.801441] (-) TimerEvent: {}
+[0.901749] (-) TimerEvent: {}
+[1.002043] (-) TimerEvent: {}
+[1.102406] (-) TimerEvent: {}
+[1.202701] (-) TimerEvent: {}
+[1.303022] (-) TimerEvent: {}
+[1.403406] (-) TimerEvent: {}
+[1.503720] (-) TimerEvent: {}
+[1.604078] (-) TimerEvent: {}
+[1.704415] (-) TimerEvent: {}
+[1.788180] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KCameraStreamPublisher::\x1b[01;32m\x1b[KCameraStreamPublisher\x1b[m\x1b[K(std::string, int, camera_mode)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.788498] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:45:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCameraStreamPublisher::camera_select_\x1b[m\x1b[K\xe2\x80\x99 will be initialized after [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[1.788585] (camera_stream) StderrLine: {'line': b'   45 |         int \x1b[01;35m\x1b[Kcamera_select_\x1b[m\x1b[K;\n'}
+[1.788627] (camera_stream) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.788667] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:44:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kint CameraStreamPublisher::camera_mode_\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[1.788716] (camera_stream) StderrLine: {'line': b'   44 |         int \x1b[01;35m\x1b[Kcamera_mode_\x1b[m\x1b[K;\n'}
+[1.788756] (camera_stream) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.788793] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:14:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  when initialized here [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[1.788830] (camera_stream) StderrLine: {'line': b'   14 |         \x1b[01;35m\x1b[KCameraStreamPublisher\x1b[m\x1b[K(std::string name, int camera_select, enum camera_mode mode) : Node(name), camera_select_(camera_select), camera_mode_(mode)\n'}
+[1.788867] (camera_stream) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.804019] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid CameraStreamPublisher::\x1b[01;32m\x1b[Ktimer_callback\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.804107] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:137:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KRCLCPP_INFO_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KRCLCPP_INFO\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[1.804147] (camera_stream) StderrLine: {'line': b'  137 |         \x1b[01;31m\x1b[KRCLCPP_INFO_\x1b[m\x1b[K(this->get_logger(),"Publishing message.");\n'}
+[1.804188] (camera_stream) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.804225] (camera_stream) StderrLine: {'line': b'      |         \x1b[32m\x1b[KRCLCPP_INFO\x1b[m\x1b[K\n'}
+[1.804463] (-) TimerEvent: {}
+[1.806880] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid CameraStreamPublisher::\x1b[01;32m\x1b[KinitCamera\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.806928] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:207:188:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids compound-literals [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic\x07-Wpedantic\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[1.806970] (camera_stream) StderrLine: {'line': b'  207 |                                 success = init_HKCamera(&hkcamera_, CAMERA_CAR_DEVID, (struct HIKCameraParams){CAR_CAMERA_HIK_EXPOSURE_TIME, CAR_CAMERA_HIK_GAIN, CAR_CAMERA_HIK_FRAME_RATE\x1b[01;35m\x1b[K}\x1b[m\x1b[K);\n'}
+[1.807008] (camera_stream) StderrLine: {'line': b'      |                                                                                                                                                                                            \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.807043] (camera_stream) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kevin/radar_ws/src/camera_stream/src/camera_stream_publisher.cpp:209:196:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids compound-literals [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic\x07-Wpedantic\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[1.807078] (camera_stream) StderrLine: {'line': b'  209 |                                 success = init_HKCamera(&hkcamera_, CAMERA_DRONE_DEVID, (struct HIKCameraParams){DRONE_CAMERA_HIK_EXPOSURE_TIME, DRONE_CAMERA_HIK_GAIN, DRONE_CAMERA_HIK_FRAME_RATE\x1b[01;35m\x1b[K}\x1b[m\x1b[K);\n'}
+[1.807113] (camera_stream) StderrLine: {'line': b'      |                                                                                                                                                                                                    \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.904555] (-) TimerEvent: {}
+[2.004778] (-) TimerEvent: {}
+[2.104997] (-) TimerEvent: {}
+[2.205229] (-) TimerEvent: {}
+[2.305441] (-) TimerEvent: {}
+[2.405639] (-) TimerEvent: {}
+[2.505891] (-) TimerEvent: {}
+[2.606091] (-) TimerEvent: {}
+[2.706296] (-) TimerEvent: {}
+[2.806495] (-) TimerEvent: {}
+[2.812222] (camera_stream) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/camera_stream_publisher.dir/build.make:76\xef\xbc\x9aCMakeFiles/camera_stream_publisher.dir/src/camera_stream_publisher.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[2.812390] (camera_stream) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:646\xef\xbc\x9aCMakeFiles/camera_stream_publisher.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[2.812642] (camera_stream) StderrLine: {'line': b'gmake: *** [Makefile:146\xef\xbc\x9aall] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[2.814317] (camera_stream) CommandEnded: {'returncode': 2}
+[2.822545] (camera_stream) JobEnded: {'identifier': 'camera_stream', 'rc': 2}
+[2.823208] (pnp_calibration) JobSkipped: {'identifier': 'pnp_calibration'}
+[2.823222] (vision_detector) JobSkipped: {'identifier': 'vision_detector'}
+[2.823230] (radar_controllers) JobSkipped: {'identifier': 'radar_controllers'}
+[2.823238] (-) EventReactorShutdown: {}

@@ -1,0 +1,189 @@
+[0.011s] Invoking command in '/home/kevin/radar_ws/build/vision_detector': CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/camera_stream:/home/kevin/radar_ws/install/radar_controllers:/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/pnp_calibration:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/camera_stream/lib:/home/kevin/radar_ws/install/vision_detector/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32 PYTHONPATH=/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /home/kevin/radar_ws/build/vision_detector -- -j32 -l32
+[0.076s] [  2%] Built target vision_detector__rs
+[0.077s] [  4%] Built target vision_detector__rosidl_generator_type_description
+[0.086s] [  4%] Built target ament_cmake_python_copy_vision_detector
+[0.095s] [  6%] Built target vision_detector__cpp
+[0.097s] [ 22%] Built target vision_detector__rosidl_generator_c
+[0.113s] [ 30%] Built target vision_detector__rosidl_typesupport_introspection_c
+[0.116s] [ 38%] Built target vision_detector__rosidl_typesupport_cpp
+[0.116s] [ 63%] Built target vision_detector__rosidl_typesupport_fastrtps_cpp
+[0.116s] [ 63%] Built target vision_detector__rosidl_typesupport_c
+[0.116s] [ 63%] Built target vision_detector__rosidl_typesupport_fastrtps_c
+[0.116s] [ 71%] Built target vision_detector__rosidl_typesupport_introspection_cpp
+[0.132s] [ 71%] Built target vision_detector
+[0.151s] [ 73%] Built target vision_detector__py
+[0.160s] [ 75%] [32mBuilding CXX object CMakeFiles/node_vision_drone_detector.dir/src/target_detector.cpp.o[0m
+[0.170s] [ 81%] Built target vision_detector__rosidl_generator_py
+[0.187s] [ 85%] Built target vision_detector_s__rosidl_typesupport_introspection_c
+[0.187s] [ 89%] Built target vision_detector_s__rosidl_typesupport_fastrtps_c
+[0.188s] [ 93%] Built target vision_detector_s__rosidl_typesupport_c
+[0.222s] running egg_info
+[0.233s] writing vision_detector.egg-info/PKG-INFO
+[0.233s] writing dependency_links to vision_detector.egg-info/dependency_links.txt
+[0.233s] writing top-level names to vision_detector.egg-info/top_level.txt
+[0.264s] reading manifest file 'vision_detector.egg-info/SOURCES.txt'
+[0.264s] writing manifest file 'vision_detector.egg-info/SOURCES.txt'
+[0.285s] [ 93%] Built target ament_cmake_python_build_vision_detector_egg
+[0.961s] [01m[K/home/kevin/radar_ws/src/vision_detector/src/target_detector.cpp:[m[K In function ‘[01m[Kstd::vector<cv::Point_<float> >[01;32m[K detectLaserModule[m[K(const cv::Mat&)[m[K’:
+[0.961s] [01m[K/home/kevin/radar_ws/src/vision_detector/src/target_detector.cpp:276:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kmax_area[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[0.961s]   276 |     int [01;35m[Kmax_area[m[K = (motion > 2.0f) ? 320 : 220;  // 原 260/180
+[0.961s]       |         [01;35m[K^~~~~~~~[m[K
+[1.474s] [ 95%] [32m[1mLinking CXX executable node_vision_drone_detector[0m
+[2.049s] [100%] Built target node_vision_drone_detector
+[2.059s] Invoked command in '/home/kevin/radar_ws/build/vision_detector' returned '0': CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/camera_stream:/home/kevin/radar_ws/install/radar_controllers:/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/pnp_calibration:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/camera_stream/lib:/home/kevin/radar_ws/install/vision_detector/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32 PYTHONPATH=/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /home/kevin/radar_ws/build/vision_detector -- -j32 -l32
+[2.060s] Invoking command in '/home/kevin/radar_ws/build/vision_detector': CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/camera_stream:/home/kevin/radar_ws/install/radar_controllers:/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/pnp_calibration:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/camera_stream/lib:/home/kevin/radar_ws/install/vision_detector/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32 PYTHONPATH=/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --install /home/kevin/radar_ws/build/vision_detector
+[2.069s] -- Install configuration: ""
+[2.069s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/ament_index/resource_index/rosidl_interfaces/vision_detector
+[2.069s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/msg/DroneDiff.json
+[2.069s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/msg/GimbalInfo.json
+[2.069s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector
+[2.069s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/drone_diff.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/rosidl_generator_c__visibility_control.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/gimbal_info.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__functions.c
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__functions.c
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__struct.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__description.c
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__functions.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__functions.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__type_support.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__type_support.c
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__struct.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__type_support.c
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__type_support.h
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__description.c
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/environment/library_path.sh
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/environment/library_path.dsv
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/libvision_detector__rosidl_generator_c.so
+[2.070s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__rosidl_typesupport_fastrtps_c.h
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__rosidl_typesupport_fastrtps_c.h
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/libvision_detector__rosidl_typesupport_fastrtps_c.so
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/gimbal_info.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/drone_diff.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/rosidl_generator_cpp__visibility_control.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__struct.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__builder.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__type_support.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__builder.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__traits.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__traits.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__type_support.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__struct.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__rosidl_typesupport_fastrtps_cpp.hpp
+[2.071s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/dds_fastrtps
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__rosidl_typesupport_fastrtps_cpp.hpp
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/libvision_detector__rosidl_typesupport_fastrtps_cpp.so
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__type_support.c
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__rosidl_typesupport_introspection_c.h
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__type_support.c
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__rosidl_typesupport_introspection_c.h
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/libvision_detector__rosidl_typesupport_introspection_c.so
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/libvision_detector__rosidl_typesupport_c.so
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__rosidl_typesupport_introspection_cpp.hpp
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__type_support.cpp
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/gimbal_info__rosidl_typesupport_introspection_cpp.hpp
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/include/vision_detector/vision_detector/msg/detail/drone_diff__type_support.cpp
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/libvision_detector__rosidl_typesupport_introspection_cpp.so
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/libvision_detector__rosidl_typesupport_cpp.so
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/environment/pythonpath.sh
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/environment/pythonpath.dsv
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector-0.0.0-py3.12.egg-info
+[2.072s] -- Installing: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector-0.0.0-py3.12.egg-info/SOURCES.txt
+[2.072s] -- Installing: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector-0.0.0-py3.12.egg-info/top_level.txt
+[2.072s] -- Installing: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector-0.0.0-py3.12.egg-info/PKG-INFO
+[2.072s] -- Installing: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector-0.0.0-py3.12.egg-info/dependency_links.txt
+[2.072s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/vision_detector_s__rosidl_typesupport_fastrtps_c.so
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/__init__.py
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/_vision_detector_s.ep.rosidl_typesupport_introspection_c.c
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/vision_detector_s__rosidl_typesupport_c.so
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/_vision_detector_s.ep.rosidl_typesupport_fastrtps_c.c
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/vision_detector_s__rosidl_typesupport_introspection_c.so
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/msg
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/msg/__init__.py
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/msg/_gimbal_info_s.c
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/msg/_drone_diff_s.c
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/msg/_drone_diff.py
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/msg/_gimbal_info.py
+[2.073s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/_vision_detector_s.ep.rosidl_typesupport_c.c
+[2.096s] Listing '/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector'...
+[2.096s] Listing '/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/msg'...
+[2.100s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/vision_detector_s__rosidl_typesupport_fastrtps_c.so
+[2.100s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/vision_detector_s__rosidl_typesupport_introspection_c.so
+[2.100s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages/vision_detector/vision_detector_s__rosidl_typesupport_c.so
+[2.100s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/lib/libvision_detector__rosidl_generator_py.so
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/ament_index/resource_index/rust_packages/vision_detector
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/rust
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/rust/Cargo.toml
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/rust/src
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/rust/src/msg.rs
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/rust/src/lib.rs
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/rust/src/msg
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/rust/src/msg/rmw.rs
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/rust/build.rs
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/msg/DroneDiff.idl
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/msg/GimbalInfo.idl
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/msg/DroneDiff.msg
+[2.101s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/msg/GimbalInfo.msg
+[2.101s] -- Installing: /home/kevin/radar_ws/install/vision_detector/lib/vision_detector/node_vision_drone_detector
+[2.106s] -- Set non-toolchain portion of runtime path of "/home/kevin/radar_ws/install/vision_detector/lib/vision_detector/node_vision_drone_detector" to ""
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/ament_index/resource_index/package_run_dependencies/vision_detector
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/ament_index/resource_index/parent_prefix_path/vision_detector
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/environment/ament_prefix_path.sh
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/environment/ament_prefix_path.dsv
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/environment/path.sh
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/environment/path.dsv
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/local_setup.bash
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/local_setup.sh
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/local_setup.zsh
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/local_setup.dsv
+[2.106s] -- Installing: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/package.dsv
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/ament_index/resource_index/packages/vision_detector
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_generator_cExport.cmake
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_generator_cExport-noconfig.cmake
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_typesupport_fastrtps_cExport.cmake
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_generator_cppExport.cmake
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_typesupport_fastrtps_cppExport.cmake
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detector__rosidl_typesupport_introspection_cExport.cmake
+[2.106s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detector__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detector__rosidl_typesupport_cExport.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detector__rosidl_typesupport_cExport-noconfig.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detector__rosidl_typesupport_introspection_cppExport.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detector__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detector__rosidl_typesupport_cppExport.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detector__rosidl_typesupport_cppExport-noconfig.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_generator_pyExport.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/export_vision_detector__rosidl_generator_pyExport-noconfig.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/rosidl_cmake-extras.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/ament_cmake_export_libraries-extras.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/ament_cmake_export_targets-extras.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detectorConfig.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/cmake/vision_detectorConfig-version.cmake
+[2.107s] -- Up-to-date: /home/kevin/radar_ws/install/vision_detector/share/vision_detector/package.xml
+[2.109s] Invoked command in '/home/kevin/radar_ws/build/vision_detector' returned '0': CMAKE_PREFIX_PATH=/home/kevin/radar_ws/install/camera_stream:/home/kevin/radar_ws/install/radar_controllers:/home/kevin/radar_ws/install/vision_detector:/home/kevin/radar_ws/install/pnp_calibration:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/kevin/radar_ws/install/camera_stream/lib:/home/kevin/radar_ws/install/vision_detector/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/opt/MVS/lib/64:/opt/MVS/lib/32:/opt/MVS/lib/64:/opt/MVS/lib/32 PYTHONPATH=/home/kevin/radar_ws/install/camera_stream/lib/python3.12/site-packages:/home/kevin/radar_ws/install/vision_detector/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --install /home/kevin/radar_ws/build/vision_detector
